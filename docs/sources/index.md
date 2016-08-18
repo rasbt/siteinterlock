@@ -7,7 +7,7 @@
 
 ***A novel approach to pose selection in protein-ligand docking based on graph theory.***
 
-SiteInterlock is a Python package for selecting near-native protein-ligand docking poses based on the hypothesis that interfacial rigidification of both the protein and ligand prove to be important characteristics of the native binding mode and are sensitive to the spatial coupling of interactions and bond-rotational degrees of freedom in the interface.
+`siteinterlock` is a Python package for selecting near-native protein-ligand docking poses based on the hypothesis that interfacial rigidification of both the protein and ligand prove to be important characteristics of the native binding mode and are sensitive to the spatial coupling of interactions and bond-rotational degrees of freedom in the interface.
 
 The `siteinterlock` package is being developed in the [Protein Structure Analysis & Design Laboratory](http://www.kuhnlab.bmb.msu.edu) at Michigan State University. For additional information on the theory behind the SiteInterlock project, please refer to the accompanying research publication:
 
