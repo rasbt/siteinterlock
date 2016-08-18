@@ -3,6 +3,7 @@ _private/
 
 # Documentation builds
 docs/site/
+docs/_site/
 docs/siteinterlock.pdf
 
 # Temporary documentation files
