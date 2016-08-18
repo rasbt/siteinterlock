@@ -10,9 +10,9 @@
 # License: GPLv3
 
 import os
-from siteinterlock.slide.propmap import _in_range
-from siteinterlock.slide.propmap import _get_mol2_coords
-from siteinterlock.slide import propmap
+from siteinterlock.slide_utils.propmap import _in_range
+from siteinterlock.slide_utils.propmap import _get_mol2_coords
+from siteinterlock.slide_utils import propmap
 
 
 absdir = os.path.dirname(os.path.abspath(__file__))

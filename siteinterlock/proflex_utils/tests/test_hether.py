@@ -12,12 +12,12 @@
 import os
 import json
 
-from siteinterlock.pflex import hether
-from siteinterlock.pflex.hether import _read_pflexdataset
-from siteinterlock.pflex.hether import _read_decomp
-from siteinterlock.pflex.hether import _cluster_mapping
-from siteinterlock.pflex.hether import _cluster_rigidity
-from siteinterlock.pflex.hether import _rigidity_diff
+from siteinterlock.proflex_utils import hether
+from siteinterlock.proflex_utils.hether import _read_pflexdataset
+from siteinterlock.proflex_utils.hether import _read_decomp
+from siteinterlock.proflex_utils.hether import _cluster_mapping
+from siteinterlock.proflex_utils.hether import _cluster_rigidity
+from siteinterlock.proflex_utils.hether import _rigidity_diff
 
 absdir = os.path.dirname(os.path.abspath(__file__))
 

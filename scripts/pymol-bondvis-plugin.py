@@ -1,6 +1,10 @@
-# 10/24/2013 Sebastian Raschka
-# BondVis
-# PyMOL Plugin for visualization of molecular bonds between atom pairs.
+# Copyright (C) Sebastian Raschka 2016
+#
+# Original Source: https://github.com/rasbt/BondPack
+# Author: Sebastian Raschka <sebastianraschka.com>
+# Author email: mail@sebastianraschka.com
+#
+# License: GPLv3
 
 
 import tkSimpleDialog

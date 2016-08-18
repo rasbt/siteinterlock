@@ -3,10 +3,10 @@
 
 import argparse
 import os
-from siteinterlock.pflex.bondviz import get_ligand_atoms
-from siteinterlock.pflex.bondviz import get_bonded_atoms
-from siteinterlock.pflex.bondviz import write_bonded_list
-from siteinterlock.pflex.bondviz import print_bonded_list
+from siteinterlock.proflex_utils.bondviz import get_ligand_atoms
+from siteinterlock.proflex_utils.bondviz import get_bonded_atoms
+from siteinterlock.proflex_utils.bondviz import write_bonded_list
+from siteinterlock.proflex_utils.bondviz import print_bonded_list
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(
