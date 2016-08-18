@@ -7,7 +7,7 @@
 # Author: Sebastian Raschka <sebastianraschka.com>
 # Author email: raschkas@msu.edu
 #
-# License: GPL v3
+# License: GPLv3
 
 from setuptools import setup, find_packages
 import siteinterlock

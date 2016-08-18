@@ -1,3 +1,15 @@
+# Sebastian Raschka 2016
+# Copyright (C) 2016 Michigan State University
+#
+# siteinterlock, a novel algorithm for protein-ligand
+# docking based on graph theory.
+#
+# Author: Sebastian Raschka <sebastianraschka.com>
+# Author email: raschkas@msu.edu
+#
+# License: GPLv3
+
+
 def _in_range(float1, float2, floatmin=0.0, floatmax=0.0):
     """Tests if a float1 is in float2 +/- **"""
     upper = float2 + floatmax

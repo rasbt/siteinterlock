@@ -1,3 +1,12 @@
+# Copyright (C) Sebastian Raschka 2016
+#
+# Original Source: https://github.com/rasbt/BondPack
+# Author: Sebastian Raschka <sebastianraschka.com>
+# Author email: mail@sebastianraschka.com
+#
+# License: GPLv3
+
+
 import os.path
 
 

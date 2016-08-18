@@ -9,6 +9,6 @@
 #
 # License: GPLv3
 
-from .siteinterlock_score import siteinterlock_score
+from .hether import hether
 
-__all__ = ["siteinterlock_score"]
+__all__ = ["hether"]

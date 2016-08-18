@@ -1,8 +1,13 @@
-# Sebastian Raschka 2012-2016
-# SiteInterlock
-# Author: Sebastian Raschka <sebastianraschka.com>
+# Sebastian Raschka 2016
+# Copyright (C) 2016 Michigan State University
 #
-# License:
+# siteinterlock, a novel algorithm for protein-ligand
+# docking based on graph theory.
+#
+# Author: Sebastian Raschka <sebastianraschka.com>
+# Author email: raschkas@msu.edu
+#
+# License: GPLv3
 
 
 from .propmap import propmap
