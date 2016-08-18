@@ -1,0 +1,6 @@
+## mean
+
+*mean(lst)*
+
+None
+

@@ -1,7 +1,7 @@
 site_name: SiteInterlock
 site_url: http://rasbt.github.io/siteinterlock
 site_author: Sebastian Raschka
-site_description: A novel approach to pose selection in protein-ligand docking based on graph theory.
+site_description: some phrase here
 
 repo_url: https://github.com/rasbt/siteinterlock
 
@@ -23,7 +23,8 @@ extra_javascript:
 #extra_css:
 #  - extra.css
 
-copyright: Copyright &copy; 2016 Michigan State University. Developed in the <a href="http://www.kuhnlab.bmb.msu.edu">PSA Laboratory</a>.<br>Code and design by <a href="http://sebastianraschka.com">Sebastian Raschka</a>.
+copyright: Copyright &copy; 2016 <a href="http://sebastianraschka.com">Sebastian Raschka</a>
+# google_analytics: ['UA-38457794-2', 'rasbt.github.io/siteinterlock/']
 
 pages:
 - Home: index.md
@@ -35,7 +36,6 @@ pages:
   - user_guide/Preparing_Docking_Poses_for_SiteInterlock.md
   - user_guide/SiteInterlock_Scoring.md
 - About:
-  - Contact: contact.md
   - Release Notes: changelog.md
   - License: license.md
   - Citing SiteInterlock: cite.md

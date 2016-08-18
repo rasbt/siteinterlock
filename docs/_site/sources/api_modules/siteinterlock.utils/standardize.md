@@ -1,0 +1,6 @@
+## standardize
+
+*standardize(lst)*
+
+None
+
