@@ -24,7 +24,7 @@ setup(name='siteinterlock',
       packages=find_packages(),
       package_data={'': ['LICENSE', 'README.md', 'requirements.txt']},
       include_package_data=True,
-      license='{placeholder}',
+      license='GPLv3',
       platforms='any',
       classifiers=[
           'License :: OSI Approved :: GNU General Public License v3 (GPLv3)',
