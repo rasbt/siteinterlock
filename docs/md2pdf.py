@@ -90,7 +90,7 @@ def gen_title(fname):
 
 with open(md_out_path, 'w') as f_out:
     meta = r"""---
-title: siteinterlock v0.1.0
+title: siteinterlock v1.0.0
 subtitle: Library Documentation
 author: Sebastian Raschka
 header-includes:

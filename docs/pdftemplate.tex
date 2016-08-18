@@ -1,5 +1,10 @@
+
+
 \documentclass[$if(fontsize)$$fontsize$,$endif$$if(lang)$$lang$,$endif$$if(papersize)$$papersize$,$endif$$for(classoption)$$classoption$$sep$,$endfor$]{$documentclass$}
 $if(fontfamily)$
+
+
+
 \usepackage{$fontfamily$}
 $else$
 \usepackage{lmodern}
@@ -193,6 +198,8 @@ $endfor$
 \let\oldsubparagraph\subparagraph
 \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
 \fi
+
+\usepackage[vmargin=1in,hmargin=1in]{geometry}
 
 \begin{document}
 
