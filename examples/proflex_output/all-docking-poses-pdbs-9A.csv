@@ -1,0 +1,22 @@
+#
+# SiteInterlock version 1.0.0
+# Author: Sebastian Raschka
+# Timestamp: 2016-08-17T14:42:20
+#
+# ==============================
+# SiteInterlock Scoring Results
+# ==============================
+Filename,SiteInterlock_Score
+1com_0057_pflex_in_flex_0001.pdb,-1.431
+1com_8_0676_pflex_in_flex_0001.pdb,-0.896
+1com_0140_pflex_in_flex_0001.pdb,-0.810
+1com_0058_pflex_in_flex_0001.pdb,-0.649
+1com_4_0032_pflex_in_flex_0001.pdb,-0.603
+1com_0119_pflex_in_flex_0001.pdb,-0.601
+1com_1_0066_pflex_in_flex_0001.pdb,0.055
+1com_5_0055_pflex_in_flex_0001.pdb,0.067
+1com_3_0826_pflex_in_flex_0001.pdb,0.326
+1com_3_0594_pflex_in_flex_0001.pdb,0.401
+1com_0130_pflex_in_flex_0001.pdb,1.026
+1com_2_0784_pflex_in_flex_0001.pdb,1.419
+1com_8_0518_pflex_in_flex_0001.pdb,1.696

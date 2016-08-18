@@ -1,0 +1,17 @@
+SiteInterlock version 1.0.0
+Author: Sebastian Raschka
+Timestamp: 2016-08-12T18:22:46
+
+==============
+PROPMAP results
+==============
+C1 --> hydrophobic contact
+C3 --> hydrophobic contact
+C5 --> hydrophobic contact
+C8 --> hydrophobic contact
+O1 --> b [H-bond Donor and/or Acceptor]
+O2 --> a [H-bond Acceptor]
+O3 --> a [H-bond Acceptor]
+O4 --> a [H-bond Acceptor]
+O5 --> a [H-bond Acceptor]
+O6 --> a [H-bond Acceptor]
