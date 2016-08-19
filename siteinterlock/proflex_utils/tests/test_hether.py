@@ -56,7 +56,7 @@ def test_cluster_mapping():
     with open(abs_test_data, 'r') as t:
         s = t.read()
         dd = json.loads(s)
-        dd = {int(k): v for k, v in dd.items()}
+        dd = set([int(k): v for k, v in dd.items()])
 
     rel_test_data = 'hether_test_data/hether_testcase_0/calphas.json'
     abs_test_data = os.path.join(absdir, rel_test_data)
