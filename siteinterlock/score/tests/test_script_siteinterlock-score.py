@@ -27,8 +27,9 @@ def test_scoring():
     abs_script = os.path.join(absdir, s_path)
     abs_examples = os.path.join(absdir, e_path)
 
-    r = subprocess.check_output(['python', abs_script,
-                                 '-i', abs_examples])
+    r = subprocess.Popen(['python', abs_script,
+                          '-i', abs_examples],
+                         stdout=subprocess.PIPE).communicate()[0]
     r = [i for i in r.decode("utf-8").split('\n')]
     r = [i for i in r if i and not i.startswith('#')]
 

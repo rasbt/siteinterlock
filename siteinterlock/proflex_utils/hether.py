@@ -11,6 +11,7 @@
 
 import math
 
+
 def _read_pflexdataset(pflexdataset_file):
     """
     Note: Number of atoms differs from number of atoms in the
@@ -108,7 +109,7 @@ def _cluster_rigidity(cluster_dict, cluster_threshold=3, how='proportion'):
     """
     Returns proportion of residues in rigid clusters
     """
-    how_allowed = {'proportion', 'count'}
+    how_allowed = set(['proportion', 'count'])
     if how not in how_allowed:
         ValueError('`how must be in %s`' % how_allowed)
     if how == 'count':
@@ -168,8 +169,9 @@ def hether(pflexdataset_file, decomp_file, verbose=0):
 
     if verbose:
         for v, k in sorted(thresholds_dict.items(), reverse=True):
-            print('Rigidity: %.2f Clusters: %d H-bond Thres.: %.5f' %(v[0], v[1], k))
+            print('Rigidity: %.2f Clusters: %d H-bond Thres.: %.5f'
+                  % (v[0], v[1], k))
 
     opt = _rigidity_diff(thresholds_dict)
     energy, rigidity, n_cluster = opt[0], opt[1][0], opt[1][1]
-    return math.ceil(1000*energy)/1000, rigidity, n_cluster
+    return math.ceil(1000.0 * energy) / 1000.0, rigidity, n_cluster
