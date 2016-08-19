@@ -26,12 +26,7 @@ copyright: Copyright &copy; 2016 Michigan State University
 pages:
 - Home: index.md
 - Installation: installation.md
-- User Guide:
-  - user_guide/Overview.md
-  - user_guide/Preparing_a_Protein_Structure_for_Docking.md
-  - user_guide/Ligand_Docking.md
-  - user_guide/Preparing_Docking_Poses_for_SiteInterlock.md
-  - user_guide/SiteInterlock_Scoring.md
+- User Guide: user_guide.md
 - About:
   - Contact: contact.md
   - Release Notes: changelog.md

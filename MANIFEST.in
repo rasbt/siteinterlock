@@ -1,5 +1,0 @@
-include LICENSE.txt
-include README.md
-recursive-include siteinterlock/scripts *.py *.pyml
-recursive-include examples
-prune .DS_Store
