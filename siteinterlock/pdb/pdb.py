@@ -97,22 +97,17 @@ class Pdb():
 
     def grab_radius(self, radius, coordinates, include_h=False,
                     protein=True, ligand=False):
-        """
-        Grabs those atoms that are within a specified
-        radius given a 3D-coordinate.
+        """ Gets atoms within a specified radius given a 3D-coordinate.
 
         Parameters
         ----------
-
         radius : `int` or `float`.
           Radius in Angstroms.
-
         Coordinates : `list`
           A list of x, y, z coordinates , e.g., `[1.0, 2.4, 4.0]`
 
         Returns
         ----------
-
         atom_cont : `list`.
           List of PDB file contents that are within the specified radius.
 

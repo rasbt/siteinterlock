@@ -5,7 +5,7 @@
 ![Python 2.6](https://img.shields.io/badge/python-2.6-blue.svg)
 ![Python 2.7](https://img.shields.io/badge/python-2.7-blue.svg)
 ![Python 3](https://img.shields.io/badge/python-3-blue.svg)
-![License](https://img.shields.io/badge/license-GPLv3-blue.svg)
+[![License](https://img.shields.io/badge/license-GPLv3-blue.svg)](/license/index.html)
 
 <br>
 
