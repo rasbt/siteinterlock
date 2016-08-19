@@ -5,11 +5,11 @@ site_description: A novel approach to pose selection in protein-ligand docking b
 
 repo_url: https://github.com/rasbt/siteinterlock
 
-#include_search: true # not necessary for this theme
 docs_dir: sources
+site_dir: html
 theme: readthedocs
 
-
+use_directory_urls: false
 site_favicon: favicon.ico
 
 markdown_extensions:
@@ -20,10 +20,8 @@ markdown_extensions:
 extra_javascript:
   - https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML
   - mathjaxhelper.js
-#extra_css:
-#  - extra.css
 
-copyright: Copyright &copy; 2016 Michigan State University. Developed in the <a href="http://www.kuhnlab.bmb.msu.edu">PSA Laboratory</a>.<br>Code and design by <a href="http://sebastianraschka.com">Sebastian Raschka</a>.
+copyright: Copyright &copy; 2016 Michigan State University
 
 pages:
 - Home: index.md
@@ -39,12 +37,3 @@ pages:
   - Release Notes: changelog.md
   - License: license.md
   - Citing SiteInterlock: cite.md
-
-
-#- API:
-#  - api_subpackages/siteinterlock.mol2.md
-#  - api_subpackages/siteinterlock.pdb.md
-#  - api_subpackages/siteinterlock.pflex.md
-#  - api_subpackages/siteinterlock.score.md
-#  - api_subpackages/siteinterlock.slide.md
-#  - api_subpackages/siteinterlock.utils.md

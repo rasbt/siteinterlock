@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="Sebastian Raschka">
+  
+  <title>Preparing Docking Poses for SiteInterlock - SiteInterlock</title>
+  
+
+  <link rel="shortcut icon" href="../../favicon.ico">
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Preparing Docking Poses for SiteInterlock";
+    var mkdocs_page_input_path = "user_guide/Preparing_Docking_Poses_for_SiteInterlock.md";
+    var mkdocs_page_url = "/user_guide/Preparing_Docking_Poses_for_SiteInterlock/index.html";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script src="../../js/theme.js"></script> 
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+  <script src="../../mathjaxhelper.js"></script>
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../../index.html" class="icon icon-home"> SiteInterlock</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../index.html">Home</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../installation/index.html">Installation</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>User Guide</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../Overview/index.html">Overview</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../Preparing_a_Protein_Structure_for_Docking/index.html">Preparing a Protein Structure for Docking</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../Ligand_Docking/index.html">Ligand Docking</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="index.html">Preparing Docking Poses for SiteInterlock</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#organizing-the-protein-docking-poses-as-pdb-files">Organizing the Protein Docking Poses as PDB files</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#determining-a-reasonable-energy-cut-off-for-hydrogen-bonds">Determining a Reasonable Energy Cut-Off for Hydrogen Bonds</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#optional-visualizing-rigid-and-flexible-clusters-in-pymol">Optional: Visualizing Rigid and Flexible Clusters in PyMOL</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#proflex-analysis-on-docking-poses">ProFlex Analysis on Docking Poses</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#optional-visualizing-h-bond-interactions-between-proteins-and-ligands">Optional: Visualizing H-bond Interactions between Proteins and Ligands</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../SiteInterlock_Scoring/index.html">SiteInterlock Scoring</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>About</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../contact/index.html">Contact</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../changelog/index.html">Release Notes</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../license/index.html">License</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../cite/index.html">Citing SiteInterlock</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">SiteInterlock</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>User Guide &raquo;</li>
+        
+      
+    
+    <li>Preparing Docking Poses for SiteInterlock</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/rasbt/siteinterlock" class="icon icon-github"> Edit on GitHub</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="organizing-the-protein-docking-poses-as-pdb-files">Organizing the Protein Docking Poses as PDB files</h1>
+<ul>
+<li>After you successfully docked the ligand into the protein's binding site</li>
+<li>Prepare docking poses as PDB files containing protein and ligand for each docking pose</li>
+<li>Also, prepare the ligand-free structure of the protein</li>
+<li>Prior to ProFlex, make sure the proteins have protons</li>
+<li>You can use Reduce for instance</li>
+<li>We recommend you put each docking pose into a separate directory, for instance as in examples/proflex_input<ul>
+<li>for ? docking poses + ligand-free structure + crystal structure</li>
+</ul>
+</li>
+</ul>
+<p><img alt="" src="../images/pflex_input_dir_structure.png" /></p>
+<h1 id="determining-a-reasonable-energy-cut-off-for-hydrogen-bonds">Determining a Reasonable Energy Cut-Off for Hydrogen Bonds</h1>
+<pre><code class="bash">cd 1com_nolig/
+</code></pre>
+
+<pre><code class="bash">proflex -h 1com_nolig.pdb
+</code></pre>
+
+<pre><code>Number of H-bonds remaining: 202
+
+Number of H-phobic tethers remaining: 166
+
+         Filter on Hydrogen Bond Energy:
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    All current hydrogen bonds have energies between:
+        -9.8419 Kcal/Mol  to  0.0226 Kcal/Mol
+
+    Enter a maximum acceptable hydrogen bond energy (in Kcal/Mol)
+    (-1.0 is a reasonable cutoff in general): 0
+</code></pre>
+
+<pre><code>
+    ANALYSIS MENU
+
+  What would you like to perform:
+
+    (1) Flexibility and rigidity analysis
+    (2) Hydrogen bond dilution
+2
+</code></pre>
+
+<pre><code>  Which hydrogen bond dilution analysis would you like?
+
+   (1) Standard hydrogen bond dilution, removing weakestH-bonds, one at a time
+
+   (2) Random dilution over all H-bonds.
+       NOTE: This option is *not* recommended;
+             It may be used to probe the influence of H-bond
+             density, as opposed to strength, on rigidity
+
+1
+</code></pre>
+
+<p><img alt="" src="../images/1com_nolig_hbdilute_dir.png" /></p>
+<pre><code class="bash">~/Desktop$ python siteinterlock-toolkit/scripts/hether.py\
+--input1 examples/proflex_output/1com_nolig/1com_nolig_proflexdataset\
+--input2 examples/proflex_output/1com_nolig/decomp_list 
+</code></pre>
+
+<p>Output:</p>
+<pre><code>SiteInterlock version 1.0.0
+Author: Sebastian Raschka
+Timestamp: 2016-08-12T15:38:17
+
+==============
+HETHER results
+==============
+Suggested energy threshold: -0.806 kcal/mol
+Number of rigid clusters: 4
+Relative rigidity [0, 1]: 0.83
+</code></pre>
+
+<ul>
+<li>suggest saving this to a logfile</li>
+</ul>
+<p><img alt="" src="../images/1com_nolig_h-bonds_dilute.png" /></p>
+<h1 id="optional-visualizing-rigid-and-flexible-clusters-in-pymol">Optional: Visualizing Rigid and Flexible Clusters in PyMOL</h1>
+<p>proflex -h 1com_nolig.pdb </p>
+<pre><code>Number of H-bonds remaining: 202
+
+Number of H-phobic tethers remaining: 166
+
+         Filter on Hydrogen Bond Energy:
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    All current hydrogen bonds have energies between:
+        -9.8419 Kcal/Mol  to  0.0226 Kcal/Mol
+
+    Enter a maximum acceptable hydrogen bond energy (in Kcal/Mol)
+    (-1.0 is a reasonable cutoff in general): -0.806
+</code></pre>
+
+<pre><code>    ANALYSIS MENU
+
+  What would you like to perform:
+
+    (1) Flexibility and rigidity analysis
+    (2) Hydrogen bond dilution
+1
+
+</code></pre>
+
+<p><img alt="" src="../images/1com_nolig_hbdilute_dir-2.png" /></p>
+<ul>
+<li>open file 1com_nolig_flex_0001.pdb in pymol</li>
+</ul>
+<p><img alt="" src="../images/1com_nolig_in_pymol.png" /></p>
+<ul>
+<li>run scripts/pymol_pflex_color.pml</li>
+</ul>
+<p><img alt="" src="../images/run_pymol_pflex_color.png" /></p>
+<p><img alt="" src="../images/1com_nolig_in_pymol_colored.png" /></p>
+<h1 id="proflex-analysis-on-docking-poses">ProFlex Analysis on Docking Poses</h1>
+<ul>
+<li>proflex -h <docking_pose>.pdb</li>
+<li>
+<p>for instance, </p>
+<ul>
+<li><code>proflex -h 1com_4_0032_pflex_in.pdb</code></li>
+</ul>
+</li>
+<li>
+<p>example files in examples/slide-propmap</p>
+</li>
+<li>
+<p>run python scripts/slide-propmap.py --input1 ~/Desktop/1com_crystal.mol2 --input2 ~/Desktop/confs_1com_0.pts</p>
+</li>
+</ul>
+<pre><code>SiteInterlock version 1.0.0
+Author: Sebastian Raschka
+Timestamp: 2016-08-12T18:22:46
+
+================
+PROPMAP results
+================
+C1 --&gt; hydrophobic contact
+C3 --&gt; hydrophobic contact
+C5 --&gt; hydrophobic contact
+C8 --&gt; hydrophobic contact
+O1 --&gt; b [H-bond Donor and/or Acceptor]
+O2 --&gt; a [H-bond Acceptor]
+O3 --&gt; a [H-bond Acceptor]
+O4 --&gt; a [H-bond Acceptor]
+O5 --&gt; a [H-bond Acceptor]
+O6 --&gt; a [H-bond Acceptor]
+</code></pre>
+
+<p><img alt="" src="../images/1com_crystal.png" /></p>
+<pre><code>---------------------------------------------------------
+    Identification of H-bond Donors, Acceptors etc.
+
+    (d) H-bond Donor 
+    (a) H-bond Acceptor 
+    (b) Both H-bond Donor and H-bond Acceptor 
+    (c) Charged Donor 
+    (e) Charged Acceptor 
+    (n) None 
+---------------------------------------------------------
+    Enter (a,b,c,d,e or n) for the following atoms.
+
+     Atom#  Atom  Res    Res#    Chain
+     3755    O1   &lt;0&gt;       1          Enter (a,b,c,d,e or n): b
+     3757    O2   &lt;0&gt;       1          Enter (a,b,c,d,e or n): a
+     3759    O3   &lt;0&gt;       1          Enter (a,b,c,d,e or n): a
+     3761    O4   &lt;0&gt;       1          Enter (a,b,c,d,e or n): a
+     3763    O5   &lt;0&gt;       1          Enter (a,b,c,d,e or n): a
+     3765    O6   &lt;0&gt;       1          Enter (a,b,c,d,e or n): a
+</code></pre>
+
+<p>blablabla</p>
+<pre><code>    ANALYSIS MENU
+
+  What would you like to perform:
+
+    (1) Flexibility and rigidity analysis
+    (2) Hydrogen bond dilution
+1
+</code></pre>
+
+<p><img alt="" src="../images/1com_4_0032_out.png" /></p>
+<p>on 1com_0057_pflex_in_flex_0001.pdb:</p>
+<p><img alt="" src="../images/1com_0057.png" /></p>
+<ul>
+<li>repeat that for all docking poses</li>
+<li>collect them somewhere</li>
+</ul>
+<p><img alt="" src="../images/all-1com-inflex.png" /></p>
+<h1 id="optional-visualizing-h-bond-interactions-between-proteins-and-ligands">Optional: Visualizing H-bond Interactions between Proteins and Ligands</h1>
+<p><img alt="" src="../images/install-bondviz-1.png" /></p>
+<p><img alt="" src="../images/install-bondviz-2.png" /></p>
+<p>restart</p>
+<p>To draw the intermolecular interactions (hydrogen bonds) as assessed by ProFlex, you need to </p>
+<ol>
+<li>Run <code>python scripts/grab_bonds_proflexdataset.py -i my_proflexdataset</code>. </li>
+</ol>
+<p>For instance</p>
+<p><code>python scripts/grab_bonds_proflexdataset.py -i my_proflexdataset</code></p>
+<p><code>~/Desktop/siteinterlock-toolkit$ python scripts/pflex-bondviz.py -i examples/proflex_output/1com_0057/1com_0057_pflex_in_proflexdataset -b hbonds</code></p>
+<pre><code>Atom#1 Atom#2
+1951 3761
+1949 3755
+3269 3759
+3566 3755
+3266 3761
+1185 3765
+</code></pre>
+
+<p>Copy and paste the results from the screen to a new text file or run the command again and pipe the output to a file</p>
+<p><code>python grab_bonds_proflexdataset.py -i my_proflexdataset &gt; hbonds.txt</code></p>
+<p><img alt="" src="../images/open-hbonds-1.png" /></p>
+<p><img alt="" src="../images/open-hbonds-2.png" /></p>
+<p><img alt="" src="../images/open-hbonds-3.png" /></p>
+<ol>
+<li>
+<p>Open the renamed proflexdataset.pdb file in PyMOL and draw the bond lines (using my BondVis PyMOL plugin, which reads in this grab_bonds_proflexdataset.py result file; examples and instructions for BondVis plugin can be found on the PSA wiki: <a href="https://sol.bch.msu.edu/mediawiki/index.php/BondVis_Plugin_for_PyMOL">https://sol.bch.msu.edu/mediawiki/index.php/BondVis_Plugin_for_PyMOL</a>.)</p>
+</li>
+<li>
+<p>Hide all atoms in PyMol  (you will have noticed that the secondary structure cannot be displayed properly). </p>
+</li>
+<li>
+<p>Now, open the Prolfex in- or output PDB file and overlay it with the bonds that where just drawn using the renamed proflexdataset.pdb file.</p>
+</li>
+</ol>
+<p>This hack of using the proflexdataset file to draw the bonds and the PDB output file for actually overlaying the bonds with the protein structure was necessary because  the atom numbers given in the <code>REMARK:HB</code> and <code>ATOM</code> section of the proflexdataset file differ from the numbers in the output PDB file.</p>
+<pre><code class="python">
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../SiteInterlock_Scoring/index.html" class="btn btn-neutral float-right" title="SiteInterlock Scoring">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../Ligand_Docking/index.html" class="btn btn-neutral" title="Ligand Docking"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>Copyright &copy; 2016 Michigan State University. Developed in the <a href="http://www.kuhnlab.bmb.msu.edu">PSA Laboratory</a>.<br>Code and design by <a href="http://sebastianraschka.com">Sebastian Raschka</a>.</p>
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/rasbt/siteinterlock" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../Ligand_Docking/index.html" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../SiteInterlock_Scoring/index.html" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>

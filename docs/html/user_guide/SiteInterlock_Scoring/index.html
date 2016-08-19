@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="Sebastian Raschka">
+  
+  <title>SiteInterlock Scoring - SiteInterlock</title>
+  
+
+  <link rel="shortcut icon" href="../../favicon.ico">
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "SiteInterlock Scoring";
+    var mkdocs_page_input_path = "user_guide/SiteInterlock_Scoring.md";
+    var mkdocs_page_url = "/user_guide/SiteInterlock_Scoring/index.html";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script src="../../js/theme.js"></script> 
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+  <script src="../../mathjaxhelper.js"></script>
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../../index.html" class="icon icon-home"> SiteInterlock</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../index.html">Home</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../installation/index.html">Installation</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>User Guide</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../Overview/index.html">Overview</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../Preparing_a_Protein_Structure_for_Docking/index.html">Preparing a Protein Structure for Docking</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../Ligand_Docking/index.html">Ligand Docking</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../Preparing_Docking_Poses_for_SiteInterlock/index.html">Preparing Docking Poses for SiteInterlock</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="index.html">SiteInterlock Scoring</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#test">Test</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#optional">Optional</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>About</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../contact/index.html">Contact</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../changelog/index.html">Release Notes</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../license/index.html">License</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../cite/index.html">Citing SiteInterlock</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">SiteInterlock</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>User Guide &raquo;</li>
+        
+      
+    
+    <li>SiteInterlock Scoring</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/rasbt/siteinterlock" class="icon icon-github"> Edit on GitHub</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="test">Test</h1>
+<pre><code class="bash">python scripts/get-substructures.py \
+--input examples/proflex_output/all-docking-poses-pdbs/ \
+--output examples/proflex_output/all-docking-poses-pdbs-9A/ \
+--ligand &quot;&lt;0&gt;&quot; \
+--apply_to_dir
+</code></pre>
+
+<p><img alt="" src="../images/1com_0057-rad9A.png" />|</p>
+<pre><code class="bash">~/Desktop/siteinterlock-toolkit$ python scripts/siteinterlock-score.py -i examples/proflex_output/all-docking-poses-pdbs-9A/
+
+#
+# SiteInterlock version 1.0.0
+# Author: Sebastian Raschka
+# Timestamp: 2016-08-17T14:37:12
+#
+# ==============================
+# SiteInterlock Scoring Results
+# ==============================
+1com_0057_pflex_in_flex_0001.pdb,-1.393
+1com_8_0676_pflex_in_flex_0001.pdb,-0.863
+1com_0140_pflex_in_flex_0001.pdb,-0.776
+1com_0058_pflex_in_flex_0001.pdb,-0.600
+1com_crystal.pdb,-0.581
+1com_4_0032_pflex_in_flex_0001.pdb,-0.562
+1com_0119_pflex_in_flex_0001.pdb,-0.560
+1com_5_0055_pflex_in_flex_0001.pdb,0.105
+1com_1_0066_pflex_in_flex_0001.pdb,0.106
+1com_3_0826_pflex_in_flex_0001.pdb,0.356
+1com_3_0594_pflex_in_flex_0001.pdb,0.485
+1com_0130_pflex_in_flex_0001.pdb,1.062
+1com_2_0784_pflex_in_flex_0001.pdb,1.477
+1com_8_0518_pflex_in_flex_0001.pdb,1.746
+</code></pre>
+
+<h1 id="optional">Optional</h1>
+<pre><code class="python">import pandas as pd
+
+df1 = pd.read_csv('../../../examples/proflex_output/all-docking-poses-pdbs-9A.csv', comment='#')
+df2 = pd.read_csv('../../../examples/1com_rmsds.csv')
+</code></pre>
+
+<pre><code class="python">df3 = df1.merge(right=df2, on='Filename')
+df3.sort_values('RMSD', inplace=True)
+df3
+</code></pre>
+
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Filename</th>
+      <th>SiteInterlock_Score</th>
+      <th>RMSD</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1com_0057_pflex_in_flex_0001.pdb</td>
+      <td>-1.431</td>
+      <td>0.3592</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1com_0140_pflex_in_flex_0001.pdb</td>
+      <td>-0.810</td>
+      <td>1.0010</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1com_0058_pflex_in_flex_0001.pdb</td>
+      <td>-0.649</td>
+      <td>1.2555</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>1com_1_0066_pflex_in_flex_0001.pdb</td>
+      <td>0.055</td>
+      <td>1.5126</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>1com_0119_pflex_in_flex_0001.pdb</td>
+      <td>-0.601</td>
+      <td>1.7488</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>1com_0130_pflex_in_flex_0001.pdb</td>
+      <td>1.026</td>
+      <td>1.9982</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1com_4_0032_pflex_in_flex_0001.pdb</td>
+      <td>-0.603</td>
+      <td>2.2476</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>1com_3_0826_pflex_in_flex_0001.pdb</td>
+      <td>0.326</td>
+      <td>2.4965</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>1com_3_0594_pflex_in_flex_0001.pdb</td>
+      <td>0.401</td>
+      <td>2.7501</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>1com_2_0784_pflex_in_flex_0001.pdb</td>
+      <td>1.419</td>
+      <td>2.9999</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1com_8_0676_pflex_in_flex_0001.pdb</td>
+      <td>-0.896</td>
+      <td>3.5653</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>1com_5_0055_pflex_in_flex_0001.pdb</td>
+      <td>0.067</td>
+      <td>3.9528</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>1com_8_0518_pflex_in_flex_0001.pdb</td>
+      <td>1.696</td>
+      <td>4.8813</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<pre><code class="python">import matplotlib.pyplot as plt
+
+with plt.style.context('fivethirtyeight'):
+    plt.plot(df3['RMSD'].values, df3['SiteInterlock_Score'].values)
+    plt.xlabel('RMSD in Angstrom')
+    plt.ylabel('SiteInterlock Score')
+    plt.tight_layout()
+    plt.savefig('images/1com_scores.png', dpi=200)
+</code></pre>
+
+<p><img alt="" src="../images/1com_scores.png" /></p>
+<pre><code class="python">
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../contact/index.html" class="btn btn-neutral float-right" title="Contact">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../Preparing_Docking_Poses_for_SiteInterlock/index.html" class="btn btn-neutral" title="Preparing Docking Poses for SiteInterlock"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>Copyright &copy; 2016 Michigan State University. Developed in the <a href="http://www.kuhnlab.bmb.msu.edu">PSA Laboratory</a>.<br>Code and design by <a href="http://sebastianraschka.com">Sebastian Raschka</a>.</p>
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/rasbt/siteinterlock" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../Preparing_Docking_Poses_for_SiteInterlock/index.html" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../../contact/index.html" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>

@@ -642,7 +642,7 @@ important characteristics of the native binding mode and are
 sensitive to the spatial coupling of interactions and
 bond-rotational degrees of freedom in the interface.
 
-Copyright (C) 2016  Michigan State University.
+Copyright (C) 2016 Michigan State University.
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by

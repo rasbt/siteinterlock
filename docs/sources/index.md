@@ -2,10 +2,9 @@
 <img src="images/logo.png" alt="SiteInterlock Logo">
 </div>
 
-
 ![Python 2.6](https://img.shields.io/badge/python-2.6-blue.svg)
 ![Python 2.7](https://img.shields.io/badge/python-2.7-blue.svg)
-![Python 3](https://img.shields.io/badge/python-3.5-blue.svg)
+![Python 3](https://img.shields.io/badge/python-3-blue.svg)
 ![License](https://img.shields.io/badge/license-GPLv3-blue.svg)
 
 <br>
@@ -15,7 +14,7 @@
 
 `siteinterlock` is a Python package for selecting near-native protein-ligand docking poses based on the hypothesis that interfacial rigidification of both the protein and ligand prove to be important characteristics of the native binding mode and are sensitive to the spatial coupling of interactions and bond-rotational degrees of freedom in the interface.
 
-The `siteinterlock` package is being developed in the [Protein Structure Analysis & Design Laboratory](http://www.kuhnlab.bmb.msu.edu) at Michigan State University. For additional information on the theory behind the SiteInterlock project, please refer to the accompanying research publication:
+The `siteinterlock` package was developed in the [Protein Structure Analysis & Design Laboratory](http://www.kuhnlab.bmb.msu.edu) at Michigan State University. For additional information on the theory behind the SiteInterlock project, please refer to the accompanying research publication:
 
 - Raschka, Sebastian, Joseph Bemister-Buffington, and Leslie A. Kuhn 2016. "Detecting the Native Ligand Orientation by Interfacial Rigidity: SiteInterlock." *Proteins: Structure, Function, and Bioinformatics* XX (X). John Wiley & Sons : XXX-XX. doi:xx.xxxx/xxxxxxxx.
  {insert link to publisher website}

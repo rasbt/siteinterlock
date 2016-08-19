@@ -3,7 +3,7 @@
 The `siteinterlock` package is compatible with Python 2.6, Python 2.7, and Python 3.x, and it does not require external dependencies or libraries.
 
 
-## Installing from Source
+## Installing siteinterlock from Source
 
 You can obtain the latest, stable release of `siteinterlock` from GitHub at [https://github.com/rasbt/siteinterlock/releases](https://github.com/rasbt/siteinterlock/releases).
 
@@ -11,22 +11,3 @@ You can obtain the latest, stable release of `siteinterlock` from GitHub at [htt
 2. Next, go into the unzipped `siteinterlock` directory, and install the siteinterlock package by executing `python setup.py install`.
 3. You may verify your installation by executing the following command from your terminal: `python -c 'import siteinterlock; print(siteinterlock.__version__)'`, which should print `1.0.0`.
 4. Now, you will be able to use the SiteInterlock scripts provided in the `scripts/` subdirectory from any location on your local drive.
-
-
-## Installing from PyPI via pip
-
-If you are using `pip`, you can download and install SiteInterlock directly from [PyPI](https://pypi.python.org/pypi), the Python Package Index, by executing
-
-```bash
-pip install siteinterlock  
-```
-
-{!!add note about the scripts directory}
-
-### Upgrading via pip
-
-To upgrade an existing version of `siteinterlock` from PyPI, execute
-
-```bash
-pip install siteinterlock --upgrade
-```
