@@ -1,7 +1,7 @@
 # SiteInterlock
 
 <div style="max-width:50%;">
-<img src="docs/sources/images/logo.png" alt="SiteInterlock Logo">
+<img src="docs/sources/images/logo_small.png" alt="SiteInterlock Logo">
 </div>
 
 ![Python 2.6](https://img.shields.io/badge/python-2.6-blue.svg)
