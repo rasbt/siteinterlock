@@ -3,7 +3,6 @@
 </div>
 
 
-[![PyPI version](https://badge.fury.io/py/siteinterlock.svg)](http://badge.fury.io/py/siteinterlock)
 ![Python 2.6](https://img.shields.io/badge/python-2.6-blue.svg)
 ![Python 2.7](https://img.shields.io/badge/python-2.7-blue.svg)
 ![Python 3](https://img.shields.io/badge/python-3.5-blue.svg)
