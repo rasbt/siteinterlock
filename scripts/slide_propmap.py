@@ -37,10 +37,11 @@ if __name__ == '__main__':
     mapping = sorted(propmap(mol2_path=args.input1,
                              pts_path=args.input2).items())
 
-    print('\nSiteInterlock version %s' % (__version__))
-    print('Author: Sebastian Raschka')
-    print('Timestamp: %s' % strftime('%Y-%m-%dT%H:%M:%S'))
-    print('\n================')
+    print('#')
+    print('# SiteInterlock version %s' % (__version__))
+    print('# Timestamp: %s' % strftime('%Y-%m-%dT%H:%M:%S'))
+    print('#')
+    print('================')
     print('PROPMAP results')
     print('================')
     for atom in mapping:

@@ -17,7 +17,6 @@ if __name__ == '__main__':
         formatter_class=argparse.RawTextHelpFormatter)
 
     parser.add_argument('-i', '--input', help='Input proflex dataset file')
-    parser.add_argument('-o', '--output', help='Output file (optional)')
     parser.add_argument('-b', '--bonds', help='Which bonds to '
                         'write {hbonds, saltbridges, hydrophic, all} '
                         '(the default is "hbonds")',
@@ -43,8 +42,4 @@ if __name__ == '__main__':
     lig_atoms = get_ligand_atoms(args.input)
     bonded_atoms = get_bonded_atoms(args.input, lig_atoms, args.bonds)
 
-    if args.output:
-        with open(args.output, 'w') as outf:
-            write_bonded_list(bonded_atoms, outf)
-    else:
-        print_bonded_list(bonded_atoms)
+    print_bonded_list(bonded_atoms)

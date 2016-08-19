@@ -18,9 +18,9 @@ absdir = os.path.dirname(os.path.abspath(__file__))
 
 def test_scoring():
 
-    s_path = os.path.join('..', '..', '..',
+    s_path = os.path.join('..', '..',
                           'scripts', 'siteinterlock-score.py')
-    e_path = os.path.join('..', '..', '..',
+    e_path = os.path.join('..', '..',
                           'examples', 'proflex_output',
                           'all-docking-poses-pdbs-9A')
 

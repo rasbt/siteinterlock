@@ -23,8 +23,8 @@ if __name__ == '__main__':
                      '\nfor Proflex analyses.'),
         formatter_class=argparse.RawTextHelpFormatter,
         epilog=('Example:\n'
-                'hether.py'
-                ' -i1 1hwr_proflexdataset'
+                'proflex_hether.py'
+                ' -i1 1com_proflexdataset'
                 ' -i2 decomp_list'))
 
     parser.add_argument('-i1', '--input1',
@@ -37,13 +37,13 @@ if __name__ == '__main__':
     energy, rigidity, n_cluster = hether(pflexdataset_file=args.input1,
                                          decomp_file=args.input2)
 
-    print('\nSiteInterlock version %s' % (__version__))
-    print('Author: Sebastian Raschka')
-    print('Timestamp: %s' % strftime('%Y-%m-%dT%H:%M:%S'))
-    print('\n==============')
+    print('#')
+    print('# SiteInterlock version %s' % (__version__))
+    print('# Timestamp: %s' % strftime('%Y-%m-%dT%H:%M:%S'))
+    print('#')
+    print('==============')
     print('HETHER results')
     print('==============')
     print('Suggested energy threshold: %s kcal/mol' % energy)
     print('Number of rigid clusters: %s' % n_cluster)
-    print('Relative rigidity [0, 1]: %s\n'
-           % round(rigidity, 2))
+    print('Relative rigidity [0, 1]: %s\n' % round(rigidity, 2))

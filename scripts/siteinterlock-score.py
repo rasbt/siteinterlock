@@ -36,7 +36,6 @@ if __name__ == '__main__':
 
     print('#')
     print('# SiteInterlock version %s' % (__version__))
-    print('# Author: Sebastian Raschka')
     print('# Timestamp: %s' % strftime('%Y-%m-%dT%H:%M:%S'))
     print('#')
     print('# ==============================')

@@ -39,4 +39,4 @@ You can obtain the latest, stable release of `siteinterlock` from GitHub at [htt
 
 You can find a detailed user guide in the package documentation that is hosted at http://psa-lab.github.io/siteinterlock/index.html
 
-Alternatively, you can view the documentation offline after downloading `siteinterlock` and opening the index.html file that is located in the docs/html/ subdirectory by opening it in your web browser.
+Alternatively, you can view the documentation offline after downloading `siteinterlock` and opening the index.html file that is located in the `docs/html/` subdirectory by opening it in your preferred web browser.
