@@ -2,6 +2,12 @@
 <img src="images/logo.png" alt="SiteInterlock Logo">
 </div>
 
+
+[![PyPI version](https://badge.fury.io/py/mlxtend.svg)](http://badge.fury.io/py/mlxtend)
+![Python 2.7](https://img.shields.io/badge/python-2.7-blue.svg)
+![Python 3.5](https://img.shields.io/badge/python-3.5-blue.svg)
+![License](https://img.shields.io/badge/license-GPLv3-blue.svg)
+
 <br>
 
 
