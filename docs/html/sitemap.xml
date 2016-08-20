@@ -18,37 +18,11 @@
     
 
     
-        
     <url>
-     <loc>http://rasbt.github.io/siteinterlock/user_guide/Overview/index.html</loc>
+     <loc>http://rasbt.github.io/siteinterlock/user_guide/index.html</loc>
      <lastmod>2016-08-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
-        
-    <url>
-     <loc>http://rasbt.github.io/siteinterlock/user_guide/Preparing_a_Protein_Structure_for_Docking/index.html</loc>
-     <lastmod>2016-08-19</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>http://rasbt.github.io/siteinterlock/user_guide/Ligand_Docking/index.html</loc>
-     <lastmod>2016-08-19</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>http://rasbt.github.io/siteinterlock/user_guide/Preparing_Docking_Poses_for_SiteInterlock/index.html</loc>
-     <lastmod>2016-08-19</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>http://rasbt.github.io/siteinterlock/user_guide/SiteInterlock_Scoring/index.html</loc>
-     <lastmod>2016-08-19</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
     
 
     

@@ -15,7 +15,7 @@ The `siteinterlock` package was developed in the [Protein Structure Analysis & D
  {insert link to publisher website}
 
 
-The following flowchart provides you with a quick overview of the SiteInterlock approach. Please read the [Installation Notes](user_guide/Installation) and [Documentation](user_guide/Overview) for more details on how to use this software package.
+The following flowchart provides you with a quick overview of the SiteInterlock approach. Please read the [Installation Notes](installation/index.html) and [Documentation](user_guide/index.html) for more details on how to use this software package.
 
 <div style="max-width:70%; inline-block; margin:0 auto;">
 <img src="images/flowchart-3.png" alt="SiteInterlock workflow">

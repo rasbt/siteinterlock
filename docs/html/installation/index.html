@@ -72,9 +72,7 @@
             
                 <li class="toctree-l3"><a href="#installation">Installation</a></li>
                 
-                    <li><a class="toctree-l4" href="#installing-from-source">Installing from Source</a></li>
-                
-                    <li><a class="toctree-l4" href="#installing-from-pypi-via-pip">Installing from PyPI via pip</a></li>
+                    <li><a class="toctree-l4" href="#installing-siteinterlock-from-source">Installing siteinterlock from Source</a></li>
                 
             
             </ul>
@@ -83,46 +81,10 @@
 <li>
           
             <li>
-    <ul class="subnav">
-    <li><span>User Guide</span></li>
-
-        
-            
     <li class="toctree-l1 ">
-        <a class="" href="../user_guide/Overview/index.html">Overview</a>
+        <a class="" href="../user_guide/index.html">User Guide</a>
         
     </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../user_guide/Preparing_a_Protein_Structure_for_Docking/index.html">Preparing a Protein Structure for Docking</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../user_guide/Ligand_Docking/index.html">Ligand Docking</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../user_guide/Preparing_Docking_Poses_for_SiteInterlock/index.html">Preparing Docking Poses for SiteInterlock</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../user_guide/SiteInterlock_Scoring/index.html">SiteInterlock Scoring</a>
-        
-    </li>
-
-        
-    </ul>
 <li>
           
             <li>
@@ -198,25 +160,16 @@
             <div class="section">
               
                 <h1 id="installation">Installation</h1>
-<p>The <code>siteinterlock</code> package is compatible with Python 2.6, Python 2.7, and Python 3.x, and it does not require external dependencies or libraries.</p>
-<h2 id="installing-from-source">Installing from Source</h2>
+<p>The <code>siteinterlock</code> package is compatible with current versions of Python such as Python 3.2 or newer, and the package itself does not require external dependencies or libraries. You can find more information on how to obtain and install Python at https://www.python.org/downloads/.</p>
+<p>To produce the input files that are required for the SiteInterlock analysis, you will need to have MSU ProFlex installed. MSU ProFlex (formerly called FIRST) predicts the rigid and flexible regions in a protein structure, given a Protein Data Bank (PDB) file including polar hydrogen atoms. You can find more information about obtaining and installing ProFlex at http://kuhnlab.bmb.msu.edu/software/index.html.</p>
+<h2 id="installing-siteinterlock-from-source">Installing siteinterlock from Source</h2>
 <p>You can obtain the latest, stable release of <code>siteinterlock</code> from GitHub at <a href="https://github.com/rasbt/siteinterlock/releases">https://github.com/rasbt/siteinterlock/releases</a>.</p>
 <ol>
-<li>After clicking on the <code>Source code (zip)</code> or <code>Source code (tar.gz)</code> download links, go to your download folder and unpack the source code archive using your preferred archive-tool.</li>
-<li>Next, go into the unzipped <code>siteinterlock</code> directory, and install the siteinterlock package by executing <code>python setup.py install</code>.</li>
+<li>After clicking on the <code>Source code (zip)</code> or <code>Source code (tar.gz)</code> download links, please navigate to your download folder and unpack the source code archive using your preferred archive-tool.</li>
+<li>Next, go into the unzipped <code>siteinterlock</code> directory, and install the <code>siteinterlock</code> package by executing <code>python setup.py install</code>.</li>
 <li>You may verify your installation by executing the following command from your terminal: <code>python -c 'import siteinterlock; print(siteinterlock.__version__)'</code>, which should print <code>1.0.0</code>.</li>
 <li>Now, you will be able to use the SiteInterlock scripts provided in the <code>scripts/</code> subdirectory from any location on your local drive.</li>
 </ol>
-<h2 id="installing-from-pypi-via-pip">Installing from PyPI via pip</h2>
-<p>If you are using <code>pip</code>, you can download and install SiteInterlock directly from <a href="https://pypi.python.org/pypi">PyPI</a>, the Python Package Index, by executing</p>
-<pre><code class="bash">pip install siteinterlock  
-</code></pre>
-
-<p>{!!add note about the scripts directory}</p>
-<h3 id="upgrading-via-pip">Upgrading via pip</h3>
-<p>To upgrade an existing version of <code>siteinterlock</code> from PyPI, execute</p>
-<pre><code class="bash">pip install siteinterlock --upgrade
-</code></pre>
               
             </div>
           </div>
@@ -224,7 +177,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../user_guide/Overview/index.html" class="btn btn-neutral float-right" title="Overview">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../user_guide/index.html" class="btn btn-neutral float-right" title="User Guide">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
         <a href="../index.html" class="btn btn-neutral" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
@@ -237,7 +190,7 @@
   <div role="contentinfo">
     <!-- Copyright etc -->
     
-      <p>Copyright &copy; 2016 Michigan State University. Developed in the <a href="http://www.kuhnlab.bmb.msu.edu">PSA Laboratory</a>.<br>Code and design by <a href="http://sebastianraschka.com">Sebastian Raschka</a>.</p>
+      <p>Copyright &copy; 2016 Michigan State University</p>
     
   </div>
 
@@ -260,7 +213,7 @@
         <span><a href="../index.html" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../user_guide/Overview/index.html" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../user_guide/index.html" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
