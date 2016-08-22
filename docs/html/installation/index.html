@@ -20,6 +20,7 @@
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
   <link rel="stylesheet" href="../css/highlight.css">
+  <link href="../extra.css" rel="stylesheet">
 
   
   <script>
@@ -72,7 +73,7 @@
             
                 <li class="toctree-l3"><a href="#installation">Installation</a></li>
                 
-                    <li><a class="toctree-l4" href="#installing-siteinterlock-from-source">Installing siteinterlock from Source</a></li>
+                    <li><a class="toctree-l4" href="#installing-siteinterlock-from-source">Installing siteinterlock from source</a></li>
                 
             
             </ul>
@@ -160,16 +161,18 @@
             <div class="section">
               
                 <h1 id="installation">Installation</h1>
-<p>The <code>siteinterlock</code> package is compatible with current versions of Python such as Python 3.2 or newer, and the package itself does not require external dependencies or libraries. You can find more information on how to obtain and install Python at https://www.python.org/downloads/.</p>
-<p>To produce the input files that are required for the SiteInterlock analysis, you will need to have MSU ProFlex installed. MSU ProFlex (formerly called FIRST) predicts the rigid and flexible regions in a protein structure, given a Protein Data Bank (PDB) file including polar hydrogen atoms. You can find more information about obtaining and installing ProFlex at http://kuhnlab.bmb.msu.edu/software/index.html.</p>
-<h2 id="installing-siteinterlock-from-source">Installing siteinterlock from Source</h2>
-<p>You can obtain the latest, stable release of <code>siteinterlock</code> from GitHub at <a href="https://github.com/rasbt/siteinterlock/releases">https://github.com/rasbt/siteinterlock/releases</a>.</p>
+<p>The <code>siteinterlock</code> package is compatible with current versions of Python such as Python 3.2 or newer, and the package itself does not require external dependencies or libraries. You can find more information on how to obtain and install Python at <a href="https://www.python.org/downloads/">https://www.python.org/downloads/</a>.</p>
+<p>To produce the input files that are required for the SiteInterlock analysis, you will need to have <a href="http://kuhnlab.bmb.msu.edu/software/index.html">MSU ProFlex installed</a><sup> 1</sup>. MSU ProFlex (formerly called FIRST) predicts the rigid and flexible regions in a protein structure, given a Protein Data Bank (PDB) file, including polar hydrogen atoms. You can find more information about obtaining and installing ProFlex at <a href="http://kuhnlab.bmb.msu.edu/software/proflex/index.html">http://kuhnlab.bmb.msu.edu/software/proflex/index.html</a>.</p>
+<h2 id="installing-siteinterlock-from-source">Installing siteinterlock from source</h2>
+<p>You can obtain the latest, stable release of <code>siteinterlock</code> from GitHub at <a href="https://github.com/psa-lab/siteinterlock/releases">https://github.com/psa-lab/siteinterlock/releases</a>.</p>
 <ol>
 <li>After clicking on the <code>Source code (zip)</code> or <code>Source code (tar.gz)</code> download links, please navigate to your download folder and unpack the source code archive using your preferred archive-tool.</li>
-<li>Next, go into the unzipped <code>siteinterlock</code> directory, and install the <code>siteinterlock</code> package by executing <code>python setup.py install</code>.</li>
-<li>You may verify your installation by executing the following command from your terminal: <code>python -c 'import siteinterlock; print(siteinterlock.__version__)'</code>, which should print <code>1.0.0</code>.</li>
+<li>Next, go into the unzipped <code>siteinterlock-master</code> directory, and install the <code>siteinterlock</code> package by executing <code>python setup.py install</code> (inside <code>siteinterlock-master</code>).</li>
+<li>You may verify your installation by opening a new terminal and executing the following command: <code>python -c 'import siteinterlock; print(siteinterlock.__version__)'</code>, which should print <code>1.0.0</code>.</li>
 <li>Now, you will be able to use the SiteInterlock scripts provided in the <code>scripts/</code> subdirectory from any location on your local drive.</li>
 </ol>
+<hr />
+<p><sup>1 </sup>Jacobs, D. J., Rader, A. J., Kuhn, L. A., &amp; Thorpe, M. F. (2001). Protein flexibility predictions using graph theory. <em>Proteins: Structure, Function, and Bioinformatics</em>, 44(2), 150-165.</p>
               
             </div>
           </div>

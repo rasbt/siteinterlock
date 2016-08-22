@@ -23,6 +23,9 @@ extra_javascript:
 
 copyright: Copyright &copy; 2016 Michigan State University
 
+extra_css:
+  - extra.css
+
 pages:
 - Home: index.md
 - Installation: installation.md

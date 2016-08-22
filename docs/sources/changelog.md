@@ -12,4 +12,4 @@
 
 ##### Notes
 
-- First Release
+- First release
