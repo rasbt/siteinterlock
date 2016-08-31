@@ -1,6 +1,6 @@
 # Installation
 
-The `siteinterlock` package is compatible with Python 2.7.x and Python 3.x; the package itself does not require external
+The `siteinterlock` package is compatible with Python 2.7.x and Python 3.2 or newer; the package itself does not require external
 dependencies or libraries. If you don't already have Python installed on your system, you can find more information on how to obtain
 and install Python at [https://www.python.org/downloads/](https://www.python.org/downloads/).
 
