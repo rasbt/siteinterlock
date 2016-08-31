@@ -26,9 +26,8 @@ XX (X). John Wiley & Sons : XXX-XX. doi:xx.xxxx/xxxxxxxx.
 
 # Installation
 
-The `siteinterlock` package is compatible with current versions of Python
-such as Python 3.2 or newer, and the package itself does not require external
-dependencies or libraries. You can find more information on how to obtain
+The `siteinterlock` package is compatible with Python 2.7.x and Python 3.x; the package itself does not require external
+dependencies or libraries. If you don't already have Python installed on your system, you can find more information on how to obtain
 and install Python at [https://www.python.org/downloads/](https://www.python.org/downloads/).
 
 To produce the input files that are required for the SiteInterlock analysis,

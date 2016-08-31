@@ -1,6 +1,8 @@
 # Installation
 
-The `siteinterlock` package is compatible with current versions of Python such as Python 3.2 or newer, and the package itself does not require external dependencies or libraries. You can find more information on how to obtain and install Python at [https://www.python.org/downloads/](https://www.python.org/downloads/).
+The `siteinterlock` package is compatible with Python 2.7.x and Python 3.x; the package itself does not require external
+dependencies or libraries. If you don't already have Python installed on your system, you can find more information on how to obtain
+and install Python at [https://www.python.org/downloads/](https://www.python.org/downloads/).
 
 To produce the input files that are required for the SiteInterlock analysis, you will need to have [MSU ProFlex installed](http://kuhnlab.bmb.msu.edu/software/index.html)<sup> 1</sup>. MSU ProFlex (formerly called FIRST) predicts the rigid and flexible regions in a protein structure, given a Protein Data Bank (PDB) file, including polar hydrogen atoms. You can find more information about obtaining and installing ProFlex at [http://kuhnlab.bmb.msu.edu/software/proflex/index.html](http://kuhnlab.bmb.msu.edu/software/proflex/index.html).
 
