@@ -46,4 +46,4 @@ if __name__ == '__main__':
     print('================')
     for atom in mapping:
         print('%s --> %s' % (atom[0], atom[1]))
-    print()
+    print('\n')
