@@ -4,11 +4,10 @@
 # siteinterlock, a novel algorithm for protein-ligand
 # docking based on graph theory.
 #
-# Author: Sebastian Raschka <sebastianraschka.com>
-# Author email: raschkas@msu.edu
+# Author: Sebastian Raschka <http://sebastianraschka.com>
+# Author email: mail@sebastianraschka.com
 #
 # License: GPLv3
-
 import math
 
 

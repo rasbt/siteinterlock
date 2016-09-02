@@ -4,8 +4,8 @@
 # siteinterlock, a novel algorithm for protein-ligand
 # docking based on graph theory.
 #
-# Author: Sebastian Raschka <sebastianraschka.com>
-# Author email: raschkas@msu.edu
+# Author: Sebastian Raschka <http://sebastianraschka.com>
+# Author email: mail@sebastianraschka.com
 #
 # License: GPLv3
 
@@ -35,7 +35,7 @@ def test_scoring():
     r = subprocess.call(['python', abs_script,
                          '--input', abs1_examples,
                          '--output', abs2_examples,
-                         '--ligand', "<0>",
+                         '--ligand', "<0>,,1",
                          '--apply_to_dir'])
 
     p = os.listdir(abs2_examples)
@@ -44,7 +44,8 @@ def test_scoring():
                            '1com_1_0066_pflex_in_flex_0001.pdb'), 'r') as f:
         c = f.read()
 
-    expect="""ATOM     82  NE  ARG B  90      48.754  24.980  48.414  1.00 49.50
+    expect = """
+ATOM     82  NE  ARG B  90      48.754  24.980  48.414  1.00 49.50
 ATOM     83  CZ  ARG B  90      48.507  23.846  49.103  1.00 49.50
 ATOM     84  NH1 ARG B  90      47.279  23.380  49.308  1.00 49.50
 ATOM     85  NH2 ARG B  90      49.517  23.105  49.535  1.00 49.50
@@ -643,6 +644,7 @@ HETATM 3905  O4  <0>     1      53.202  28.024  47.991  1.00 99.00
 HETATM 3906  C5  <0>     1      52.359  26.249  46.699  1.00 99.00
 HETATM 3907  C6  <0>     1      52.240  27.215  47.845  1.00 99.00
 HETATM 3908  O6  <0>     1      50.313  22.867  45.033  1.00 99.00\n"""
+    expect = expect.lstrip()
 
-    assert c == expect, c
+    assert c == expect
     shutil.rmtree(abs2_examples)
