@@ -51,6 +51,6 @@ def test_hether():
     expect = ['==============', 'HETHER results', '==============',
               'Suggested energy threshold: -0.806 kcal/mol',
               'Number of rigid clusters: 4',
-              'Relative rigidity [0, 1]: 0.83']
+              'Relative rigidity: 82.8%']
 
-    assert r == expect
+    assert r == expect, r

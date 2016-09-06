@@ -54,4 +54,4 @@ if __name__ == '__main__':
     print('==============')
     print('Suggested energy threshold: %s kcal/mol' % energy)
     print('Number of rigid clusters: %s' % n_cluster)
-    print('Relative rigidity [0, 1]: %s\n' % round(rigidity, 2))
+    print('Relative rigidity: %s%%\n' % (round(rigidity, 3) * 100))
