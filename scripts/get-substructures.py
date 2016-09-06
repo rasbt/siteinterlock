@@ -1,13 +1,21 @@
 # Sebastian Raschka 2016
+#
+# `siteinterlock` is a Python package for selecting near-native protein-ligand
+# docking poses based upon the hypothesis that interfacial rigidification
+# of both the protein and ligand prove to be important characteristics of
+# the native binding mode and are sensitive to the spatial coupling of
+# interactions and bond-rotational degrees of freedom in the interface.
+#
 # Copyright (C) 2016 Michigan State University
-#
-# siteinterlock, a novel algorithm for protein-ligand
-# docking based on graph theory.
-#
-# Author: Sebastian Raschka <sebastianraschka.com>
-# Author email: raschkas@msu.edu
-#
 # License: GPLv3
+#
+# SiteInterlock was developed in the
+# Protein Structural Analysis & Design Laboratory
+# (http://www.kuhnlab.bmb.msu.edu)
+#
+# Author: Sebastian Raschka <http://sebastianraschka.com>
+# Author email: mail@sebastianraschka.com
+#
 
 from siteinterlock.pdb import Pdb
 import argparse

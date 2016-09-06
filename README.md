@@ -13,8 +13,9 @@ of both the protein and ligand prove to be important characteristics of
 the native binding mode and are sensitive to the spatial coupling of
 interactions and bond-rotational degrees of freedom in the interface.
 
+
 The `siteinterlock` package was developed in the
-[Protein Structure Analysis & Design Laboratory](http://www.kuhnlab.bmb.msu.edu)
+[Protein Structural Analysis & Design Laboratory](http://www.kuhnlab.bmb.msu.edu)
 at Michigan State University. For additional information on the theory
 behind the SiteInterlock project, please refer to the accompanying research publication:
 
@@ -52,12 +53,19 @@ terminal and executing the following command:
 4. Now, you will be able to use the SiteInterlock scripts provided
 in the `scripts/` subdirectory from any location on your local drive.
 
-
 # Documentation
 
 You can find a detailed user guide in the package documentation that
 is hosted at [http://psa-lab.github.io/siteinterlock/index.htm](http://psa-lab.github.io/siteinterlock/index.html).
 
 Alternatively, you can view the documentation offline after
-downloading `siteinterlock` and opening the index.html file that is
+downloading `siteinterlock` and opening the `index.html` file that is
 located in the `docs/html/` subdirectory by opening it in your preferred web browser.
+
+---
+
+---
+
+Copyright (C) 2016 Michigan State University,  
+developed in the [Protein Structural Analysis & Design Laboratory](http://www.kuhnlab.bmb.msu.edu)  
+Contact email: kuhnlab@msu.edu
