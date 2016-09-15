@@ -34,7 +34,7 @@ if __name__ == '__main__':
 
     parser.add_argument('-i', '--input', help='Input proflex dataset file')
     parser.add_argument('-b', '--bonds', help='Which bonds to '
-                        'write {hbonds, saltbridges, hydrophic, all} '
+                        'write {hbonds, saltbridges, hydrophobic, all} '
                         '(the default is "hbonds")',
                         default='hbonds')
 

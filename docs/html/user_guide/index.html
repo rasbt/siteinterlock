@@ -87,7 +87,7 @@
                 <li class="toctree-l3"><a href="#2-determining-a-reasonable-energy-cut-off-for-hydrogen-bonds-in-proflex">2 - Determining a Reasonable Energy Cut-Off for Hydrogen Bonds in ProFlex</a></li>
                 
             
-                <li class="toctree-l3"><a href="#optional-visualizing-rigid-and-flexible-clusters-in-pymol">Optional: Visualizing Rigid and Flexible Clusters in PyMOL</a></li>
+                <li class="toctree-l3"><a href="#optional-but-encouraged-visualizing-rigid-and-flexible-clusters-in-pymol">Optional but Encouraged: Visualizing Rigid and Flexible Clusters in PyMOL</a></li>
                 
             
                 <li class="toctree-l3"><a href="#3-analyzing-docking-poses-via-proflex">3 - Analyzing Docking Poses via ProFlex</a></li>
@@ -180,25 +180,72 @@
             <div class="section">
               
                 <h1 id="user-guide-overview">User Guide Overview</h1>
-<p>This guide shows you how to use <code>siteinterlock</code> in a typical scoring and pose selection in a typical docking study. The examples used in this guide are based on a small re-docking study of the protein-ligand crystal complex of monofunctional chorismate mutase and prephenic acid (PDB code: <a href="http://www.rcsb.org/pdb/explore/explore.do?structureId=1com">1com</a> [<a href="#references">1</a>]). The files we will be working with in this tutorial are located in the <code>examples/</code> subdirectory<br> of the <code>siteinterlock</code> package.   </p>
-<p>The subsequent flowchart highlights a typical workflow of a re-docking study via <code>siteinterlock</code>, and this guide assumes that you already completed steps 1-3 and prepared protein-ligand docking poses using your preferred docking tool; for example, <a href="http://vina.scripps.edu">AutoDock Vina</a> [<a href="#references">2</a>]. In the following sections, we will only consider a representative subset of docking poses of 1com for clarity when illustrating the use of the <code>siteinterlock</code> package for near-native binding pose selection (steps 3-6). These docking poses used in this guide were previously generated via OpenEye OMEGA2 [<a href="#references">3</a>] and MSU SLIDE [<a href="#references">4</a>].</p>
+<p>This guide shows you how to use <code>siteinterlock</code> in a typical scoring and pose
+selection in a typical docking study. The examples used in this guide are based
+on a small re-docking study of the protein-ligand crystal complex of
+monofunctional chorismate mutase and prephenic acid (PDB code:
+<a href="http://www.rcsb.org/pdb/explore/explore.do?structureId=1com">1com</a>
+[<a href="#references">1</a>]).
+The files we will be working with in this tutorial are located in the
+<code>examples/</code> subdirectory<br> of the <code>siteinterlock</code> package.   </p>
+<p>The subsequent flowchart highlights a typical workflow of a re-docking study
+via <code>siteinterlock</code>, and this guide assumes that you already completed steps
+1-3 and prepared protein-ligand docking poses using your preferred docking
+tool; for example, <a href="http://vina.scripps.edu">AutoDock Vina</a> [<a href="#references">2</a>].
+In the following sections, we will only consider a representative subset of
+docking poses of 1com for clarity when illustrating the use of the
+<code>siteinterlock</code> package for near-native binding pose selection (steps 3-6).
+These docking poses used in this guide were previously generated via
+<a href="http://www.eyesopen.com/omega">OpenEye OMEGA2</a> [<a href="#references">3</a>] and
+<a href="http://www.kuhnlab.bmb.msu.edu/software/slide/index.html">MSU SLIDE</a>
+[<a href="#references">4</a>].</p>
 <p><img alt="" src="../images/flowchart-3-smaller.png" /></p>
 <p><br>
 <br></p>
 <h1 id="1-organizing-protein-docking-poses-as-pdb-files">1 - Organizing Protein Docking Poses as PDB files</h1>
-<p>In this first section, we will prepare our docking poses for rigidity analysis in [<a href="#references">ProFlex</a>]. We recommend you to organize the docking poses for re-scoring in a directory structure similar to the one that is shown in the screenshot below.</p>
+<p>In this first section, we will prepare our docking poses for rigidity
+analysis in
+<a href="http://www.kuhnlab.bmb.msu.edu/software/proflex/index.html">ProFlex</a>
+<a href="#references">5</a>. We recommend you to organize the docking poses for
+re-scoring in a directory structure similar to the one that is shown
+in the screenshot below.</p>
 <p><img alt="" src="../images/pflex_input_dir_structure.png" /></p>
-<p>As illustrated in the preceding figure, we create a separate directory that contains one docking pose each. These PDB files will later serve as inputs to ProFlex. Each input file should contain the protein structure in <a href="http://www.rcsb.org/pdb/static.do?p=file_formats/pdb/index.html">PDB-file format</a> including the docked ligand. <strong><em>Please make sure that the protein-ligand complexes in these PDB files are protonated</em></strong>, which is required by ProFlex. In addition, we need to prepare a "ligand-free" structure of the protein, which we labeled <code>1com_nolig</code>. If you have further questions about the required file format, please take a look at the "1com" example files, which are located in the <code>examples/proflex_input/</code> subdirectory.</p>
+<p>As illustrated in the preceding figure, we will create a separate directory
+that contains one docking pose each. These PDB files will later serve as
+inputs to ProFlex. Each input file should contain the protein structure in
+<a href="http://www.rcsb.org/pdb/static.do?p=file_formats/pdb/index.html">PDB-file format</a>
+including the docked ligand.
+<strong><em>Please make sure that the protein-ligand complexes in these PDB files are protonated</em></strong>,
+which is required by ProFlex. In addition, we need to prepare
+a "ligand-free" structure of the protein, which we labeled <code>1com_nolig</code>.
+If you have further questions about the required file format,
+please take a look at the "1com" example files, which are located
+in the <code>examples/proflex_input/</code> subdirectory.</p>
 <p><br>
 <br></p>
 <h1 id="2-determining-a-reasonable-energy-cut-off-for-hydrogen-bonds-in-proflex">2 - Determining a Reasonable Energy Cut-Off for Hydrogen Bonds in ProFlex</h1>
-<p>Before we analyze the rigidity of the docking poses via ProFlex, we use HETHER (Hydrogen-bond Energy ThresHold Estimator for Rigidity analysis) to select the optimal hydrogen-bond energy value for ProFlex analysis. Based on the ligand-free crystal structure, HETHER determines which salt bridges and hydrogen bonds will be included in the atomic interaction network. For more details about the HETHER algorithm, please refer to the SiteInterlock research publication <a href="#References">6</a>. Using HETHER can be understood as a calibration step, since protein structures are being solved in different solvents, at different temperatures and pressures.
-Please note that <strong><em>we use the ligand-fre structure for the HETHER analysis</em></strong>, since it should represent the real-world case of a docking study where the protein-ligand crystal complex may not be available.</p>
-<p>Before we can run the HETHER analysis, though, we need to run ProFlex's 'hydrogen-dilution' analysis; we navigate to the <code>examples/proflex_input/1com_nolig</code> directory and run ProFlex via the following command:</p>
+<p>Before we analyze the rigidity of the docking poses via ProFlex, we use
+HETHER (Hydrogen-bond Energy ThresHold Estimator for Rigidity analysis)
+to select the optimal hydrogen-bond energy value for ProFlex analysis.
+Based on the ligand-free crystal structure, HETHER determines which salt
+bridges and hydrogen bonds will be included in the atomic interaction network.
+For more details about the HETHER algorithm, please refer to the SiteInterlock
+research publication [<a href="#References">6</a>]. Using HETHER can be understood as a
+calibration step, since protein structures are being solved in different
+solvents, at different temperatures and pressures.
+Please note that <strong><em>we use the ligand-free structure for the HETHER analysis</em></strong>,
+to represent the real-world case of a docking study where the protein-ligand
+crystal complex may not be available.</p>
+<p>Before we can run the HETHER analysis, though, we need to run ProFlex's
+'hydrogen-dilution' analysis;
+we navigate to the <code>examples/proflex_input/1com_nolig</code>
+directory and run ProFlex via the following command:</p>
 <pre><code>proflex -h 1com_nolig.pdb
 </code></pre>
 
-<p>When ProFlex prompts us with questions, we use the default options for analyzing the rigidity of this structure. When the following analysis menu comes up</p>
+<p>When ProFlex prompts us with questions, we use the default options for
+analyzing the rigidity of this structure. When the following analysis
+menu comes up:</p>
 <div class='proflex'>
 <pre>
     ANALYSIS MENU
@@ -210,13 +257,14 @@ Please note that <strong><em>we use the ligand-fre structure for the HETHER anal
 </pre>
 </div>
 
-<p>we enter <code>2</code> and hit the <code>&lt;Enter&gt;</code> button to confirm our choice. When the next menu appears</p>
+<p>we enter <code>2</code> and hit the <code>&lt;Enter&gt;</code> button to select hydrogen bond
+dilution as the type of analysis. When the following next menu appears</p>
 <div class='proflex'>
 <pre>
 
 Which hydrogen bond dilution analysis would you like?
 
- (1) Standard hydrogen bond dilution, removing weakestH-bonds, one at a time
+ (1) Standard hydrogen bond dilution, removing weakest H-bonds, one at a time
 
  (2) Random dilution over all H-bonds.
      NOTE: This option is *not* recommended;
@@ -227,9 +275,20 @@ Which hydrogen bond dilution analysis would you like?
  </div>
 
 <p>we enter <code>1</code> and confirm via <code>&lt;Enter&gt;</code>, which will execute
-a "Hydrogen bond dilution analysis." When the analysis finishes successfully, we can inspect the results of the dilution analysis by opening the post script image file <code>1com_nolig_h-bonds.ps</code> that was created in the <code>1com_nolig</code> directory (Example output files are located in the <code>examples/proflex_output/hbdilute-1com_nolig/</code> subdirectory):</p>
+a "Hydrogen bond dilution analysis." When the analysis finishes successfully,
+we can inspect the results of the dilution analysis by opening the post
+script image file <code>1com_nolig_h-bonds.ps</code> that was created in the <code>1com_nolig</code>
+directory (Example output files are located in the
+  <code>examples/proflex_output/hbdilute-1com_nolig/</code> subdirectory):</p>
 <p><img alt="" src="../images/1com_nolig_hbdilute_dir.png" /></p>
-<p>Finally, we can use HETHER to suggest an energy threshold for the hydrogen-bond network. We execute the <code>hether.py</code> script from <code>siteinterlock</code>'s scripts directory and provide two input files, the <code>1com_nolig_proflexdataset</code> file and the <code>decomp_list</code> file, which were both created via the hydrogen-dilution analysis. To run HETHER, we execute the following command:</p>
+<p>Finally, we can use HETHER to select the most appropriate energy threshold
+for the hydrogen-bond network to use with ProfFlex for SiteInterlock analysis.
+We execute the <code>hether.py</code> script from <code>siteinterlock</code> scripts directory and
+provide two input files, the {add a line break
+here so that the file name isn't split in the middle of a word}
+<code>1com_nolig_proflexdataset</code> file and the <code>decomp_list</code> file, which were
+both created via the hydrogen-dilution analysis. To run HETHER,
+we execute the following command:</p>
 <pre><code class="bash">python scripts/proflex_hether.py \
  --input1 examples/proflex_output/1com_nolig/1com_nolig_proflexdataset \
  --input2 examples/proflex_output/1com_nolig/decomp_list
@@ -247,35 +306,67 @@ HETHER results
 ==============
 Suggested energy threshold: -0.806 kcal/mol
 Number of rigid clusters: 4
-Relative rigidity [0, 1]: 0.83
+Relative rigidity: 83.0%
 </pre>
 </div>
 
-<p>To save this information for our records, we can copy this output it to a text or log file of choice. More conveniently, we can use the  redirect operator <code>&gt;</code> of our Linux/Unix shell to redirect outputs of siteinterlock scripts to files, for example,</p>
+<p>The relative rigidity value measures the percentage of all C-alphas
+in the protein that are in rigid regions. To save this information for our
+records, we can copy this output it to a text or log file of choice.
+More conveniently, we can use the  redirect operator <code>&gt;</code> of our
+Linux/Unix shell to redirect outputs of siteinterlock scripts to files.
+For example,</p>
 <pre><code class="bash">python scripts/proflex_hether.py \
  --input1 examples/proflex_output/1com_nolig/1com_nolig_proflexdataset \
  --input2 examples/proflex_output/1com_nolig/decomp_list\
  &gt; examples/proflex_output/1com_nolig/hether.log
 </code></pre>
 
-<p>We recommend using tee (if your shell environment supports it) so that you can show the siteinterlock script outputs on your terminal screen (<code>stdout</code>) and save it to a log file (<code>redirect</code>) without executing it twice</p>
+<p>We recommend using tee (if your shell environment supports it)
+so that you can show the siteinterlock script outputs on your terminal
+screen (<code>stdout</code>) and also save it to a log file (<code>redirect</code>)
+without executing the same command twice:</p>
 <pre><code class="bash">python scripts/proflex_hether.py \
  --input1 examples/proflex_output/1com_nolig/1com_nolig_proflexdataset \
  --input2 examples/proflex_output/1com_nolig/decomp_list\
  | tee examples/proflex_output/1com_nolig/hether.log
 </code></pre>
 
-<p>As we can see from the previous output, HETHER suggests an energy threshold of <code>`-0.806 kcal/mol</code>, which corresponds to the protein state that is indicated by an black arrow in the following hydrogen-dilution plot figure:</p>
+<p>As we can see from the previous output, HETHER suggests an energy
+threshold of <code>-0.806 kcal/mol</code>, which corresponds to the protein state
+that is indicated by an black arrow in the following hydrogen-dilution
+plot figure:</p>
 <p><img alt="" src="../images/1com_nolig_h-bonds_dilute.png" /></p>
-<p>The last two lines of the <code>hether.py</code> output provide us with optional information. For instance, <code>Number of rigid clusters: 4</code> tells us that there are 4 rigid clusters at the given energy threshold, and that the structure has a relative rigidity of 83% (<code>Relative rigidity [0, 1]: 0.83</code>). The relative rigidity is computed by dividing the number of rigid protein residues by the number of total residues.</p>
+<p>For more information about hydrogen-bond dilution analysis, please refer the
+supporting information section of the SiteInterlock research publication
+[<a href="#References">6</a>].</p>
+<p>The last two lines of the <code>hether.py</code> output provide us with optional
+information. <br />
+For instance, <code>Number of rigid clusters: 4</code> tells us that
+there are 4 rigid clusters at the given energy threshold, and that the
+structure has a relative rigidity
+value of 83%.</p>
 <p><br>
 <br></p>
-<h1 id="optional-visualizing-rigid-and-flexible-clusters-in-pymol">Optional: Visualizing Rigid and Flexible Clusters in PyMOL</h1>
-<p>In this section, we will walk through an optional step for visualizing the rigid cluster composition via ProFlex in <a href="https://www.pymol.org">PyMOL</a> using the energy threshold we determined in the previous section based on the <strong><em>ligand-free</em></strong> structure. Now, instead of running a "hydrogen-bond dilution analysis," we will perform a "flexibility and rigidity analysis" via ProFlex. Similar to our previous ProFlex run, we start the analysis by executing</p>
+<h1 id="optional-but-encouraged-visualizing-rigid-and-flexible-clusters-in-pymol">Optional but Encouraged: Visualizing Rigid and Flexible Clusters in PyMOL</h1>
+<p>In this section, we will walk through visualizing the rigid cluster
+composition via ProFlex in <a href="https://www.pymol.org">PyMOL</a> using
+the energy threshold we determined in the previous section based
+on the <strong><em>ligand-free</em></strong> structure.  This is strongly encouraged
+because it will tell you whether the energy value selected by HETHER
+is appropriate, resulting in a mostly rigid main chain with some residual
+flexibility that will be sensitive to native-like ligand interactions.
+Now, instead of running a "hydrogen-bond dilution analysis,"
+we will perform a "flexibility and rigidity analysis" via ProFlex,
+which runs ProFlex for a single energy threshold rather than for all
+thresholds.  Similar to our previous ProFlex run,
+we start the analysis by executing</p>
 <pre><code>proflex -h 1com_nolig.pdb
 </code></pre>
 
-<p>This time, when we are prompted to enter an energy cut-off, we use the threshold suggested by HETHER instead of the default setting and hit <code>&lt;Enter&gt;</code>:</p>
+<p>This time, when we are prompted to enter an energy cut-off,
+we use the threshold suggested by HETHER instead of
+the default setting and hit <code>&lt;Enter&gt;</code>:</p>
 <div class='proflex'>
 <pre>
 Number of H-bonds remaining: 202
@@ -293,7 +384,8 @@ Number of H-phobic tethers remaining: 166
 </pre>
 </div>
 
-<p>When the next menu comes up, we enter <code>1</code> and continue by confirming your choice via the <code>&lt;Enter&gt;</code> button:</p>
+<p>When the next menu comes up, we enter <code>1</code> and continue
+by confirming your choice via the <code>&lt;Enter&gt;</code> button:</p>
 <div class='proflex'>
 <pre>
 ANALYSIS MENU
@@ -305,19 +397,43 @@ What would you like to perform:
 </pre>
 </div>
 
-<p>After the flexibility analysis has completed, we should find the following files in the <code>1com_nolig</code> directory:</p>
+<p>After the flexibility analysis has completed, we should find
+the following files in the <code>1com_nolig</code> directory:</p>
 <p><img alt="" src="../images/1com_nolig_hbdilute_dir-2.png" /></p>
-<p>Next, we open the file <code>1com_nolig_flex_0001.pdb</code> in PyMOL. This PDB file represents the protein structure after the ProFlex analysis, which we can use to visualize the predicted flexible, isostatic, and rigid cluster according to the following color scale:</p>
+<p>Next, we open the file <code>1com_nolig_flex_0001.pdb</code> in PyMOL.
+This PDB file represents the protein structure after the ProFlex analysis,
+which we can use to visualize the predicted flexible, isostatic, and rigid
+clusters according to the following color scale:</p>
 <p><img alt="" src="../images/color_scale.png" /></p>
-<p>Now, we click on the "File" menu in PyMOL, select "Run" from the dropdown menu, and open the <code>scripts/pymol_pflex_color.pml</code>.</p>
+<p>Now, we click on the "File" menu in PyMOL, select "Run" from the dropdown
+menu, and open the <code>scripts/pymol_proflex_color.pml</code>.</p>
 <p><img alt="" src="../images/1com_nolig_in_pymol.png" /></p>
-<p>We should now see the protein structure with its predicted flexible and rigid regions:</p>
+<p>We should now see the protein structure with its predicted flexible
+ and rigid regions:</p>
 <p><img alt="" src="../images/1com_nolig_in_pymol_colored.png" /></p>
+<p>In this case, the energy level appears appropriate, resulting in a mostly
+rigid structure (dark blue to gray) with some flexible regions
+(yellow, orange and red).  If the protein instead appeared mostly flexible,
+it could be indicative of unresolvable (by SiteInterlock) problems in the
+stereochemical quality of the protein coordinates being analyzed; see the
+discussion about checking protein stereochemistry in the Rigidity Analysis
+section of the Raschka et al. SiteInterlock paper in the References).
+Alternatively, in the rare case when the energy selected by HETHER is slightly
+too high, resulting in excessive flexibility, a less negative energy threshold
+could be manually selected based on viewing the hydrogen-bond dilution plot
+from ProFlex, as described in section 2 above.</p>
 <p><br>
 <br></p>
 <h1 id="3-analyzing-docking-poses-via-proflex">3 - Analyzing Docking Poses via ProFlex</h1>
-<p>After we computed a reasonable hydrogen-bond cut-off based on the <strong><em>ligand-free</em></strong> protein structure in section 2, we can use this suggested cut-off value for our ProFlex analysis of the docking poses. ProFlex requires additional information about hydrogen-donor and acceptor atoms for non-protein atoms. If you used MSU SLIDE for docking, <code>siteinterlock</code> includes a script, <code>slide_propmap.py</code>, to obtain this information from SLIDE's .pts file.</p>
-<p>For instance, you can provide a MOL2 file of the ligand, prephenic acid (shown below)</p>
+<p>After we have computed a reasonable hydrogen-bond cut-off based on the
+<strong><em>ligand-free</em></strong> protein structure in section 2, we can use this
+suggested cut-off value for our ProFlex analysis of the docking poses.
+ProFlex requires additional information about hydrogen-donor and acceptor
+atoms for non-protein atoms. If you used MSU SLIDE for docking,
+<code>siteinterlock</code> includes a script, <code>slide_propmap.py</code>, to obtain this
+information from SLIDE's .pts (interaction points) file.</p>
+<p>For instance, you can provide a MOL2 file of the ligand,
+prephenic acid (shown below):</p>
 <p><img alt="" src="../images/1com_crystal.png" /></p>
 <p>and the .pts file of the docked ligand to <code>slide-propmap.py</code>:</p>
 <pre><code class="bash">python scripts/slide_propmap.py \
@@ -349,8 +465,17 @@ O6 --> a [H-bond Acceptor]
 
 </pre>
 
-<p>If you didn't use SLIDE for docking and don't have a chemistry-related background, we recommend you to either use a different tool to obtain the required donor and acceptor atom information or consult a chemist.</p>
-<p>After we acquired the information about the ligand's donor and acceptor atoms, we have to run the ProFlex flexibility analysis on each of our docking poses. For instance, to run the ProFlex analysis on the crystal structure in <code>examples/proflex_input/proflex_input/1com_crystal</code> by executing <code>proflex -h 1com_crystal_pflex_in.pdb</code> in the respective directory. When we are prompted to enter donor and acceptor information, we provide the previously obtained information as shown in the example below:</p>
+<p>If you didn't use SLIDE for docking and don't have a chemistry-related
+background, we recommend you to either use a different tool to obtain
+the required hydrogen-bond donor and acceptor information for ligand
+atoms or consult with an organic chemist.</p>
+<p>After we acquired the information about the ligand's hydrogen-bond donor
+and acceptor atoms, we will run the ProFlex flexibility analysis on each
+of the docking poses. For instance, to run the ProFlex analysis on the
+crystal structure in <code>examples/proflex_input/proflex_input/1com_crystal</code>,
+execute <code>proflex -h 1com_crystal_pflex_in.pdb</code> in the respective directory.
+When we are prompted to enter donor and acceptor information,
+we provide the above information from PropMap, as shown in the example below:</p>
 <div class='proflex'>
 <pre>
 ---------------------------------------------------------
@@ -376,7 +501,11 @@ O6 --> a [H-bond Acceptor]
 
 </pre>
 
-<p>When we are prompted to enter an energy threshold for hydrogen-bonds, we provide the value that we obtained from theligand-free structure (<code>1com_nolig</code>) that we computed via HETHER in section 2 and run the flexibility analysis by entering <code>1</code> when the following ProFlex prompt comes up:</p>
+<p>When we are prompted to enter an energy threshold for hydrogen bonds,
+we provide the value that we obtained from the ligand-free structure
+(<code>1com_nolig</code>) that we computed via HETHER in section 2.<br />
+We then run the flexibility analysis by entering <code>1</code>
+when the following ProFlex prompt comes up:</p>
 <div class='proflex'>
 <pre>
 
@@ -391,19 +520,40 @@ O6 --> a [H-bond Acceptor]
 
 </pre>
 
-<p>After running the ProFlex flexibility analysis on each of the 6 docking poses and crystal structure, we should now have 7 ProFlex output PDB files that we collect in a single directory for our convenience (example files are provided in <code>examples/proflex_output/all-docking-poses-pdbs</code>):</p>
+<p>After running the ProFlex flexibility analysis individually
+(in separate ProFlex runs) on each of the 6 docking poses and
+the crystal structure, we should now have 7 ProFlex output PDB
+files that we can collect in a single directory for convenience<br />
+(example files are provided in
+  <code>examples/proflex_output/all-docking-poses-pdbs</code>):</p>
 <p><img alt="" src="../images/proflex-output-pdbs.png" /></p>
-<p>Optionally, we can visualize the results of the flexibility analysis by following the instructions described in the previous section <em>Optional: Visualizing Rigid and Flexible Clusters in PyMOL</em>. The flexible and rigid clusters of the protein-ligand structure in <code>1com_0057_pflex_in_flex_0001.pdb</code> are shown as an example below:</p>
+<p>Optionally, we can visualize the results of the flexibility analysis
+of the protein with ligand by following the instructions described
+in the previous section
+<em>Optional but Encouraged: Visualizing Rigid and Flexible Clusters in PyMOL</em>.
+The flexible and rigid clusters of the protein-ligand structure
+in <br />
+<code>1com_0057_pflex_in_flex_0001.pdb</code> are shown as an example below:</p>
 <p><img alt="" src="../images/1com_0057.png" /></p>
-<p>Blue regions represent rigid clusters, gray regions represent isostatic clusters, and yellow, orange, and red regions indicate flexible clusters according to the following color scale:</p>
+<p>Blue regions represent rigid parts of the structure, gray regions
+represent isostatic (just barely rigid) parts, and yellow, orange,
+and red regions indicate increasingly flexible regions
+according to the following color scale:</p>
 <p><img alt="" src="../images/color_scale.png" /></p>
 <h1 id="optional-visualizing-h-bond-interactions-between-proteins-and-ligands">Optional: Visualizing H-bond Interactions between Proteins and Ligands</h1>
-<p>Optionally, we can use one of <code>siteinterlock</code>'s utilities to visualize the hydrogen bond interactions in the current docking pose as deduced via ProFlex. First, we need to install the <code>pymol_bondvis-plugin.py</code> provided in the <code>siteinterlock</code>'s <code>scripts</code> directory. As shown in the two figures below, we click on the "Manage Plugins" (if you have it enabled in your PyMOL version) and select the plugin script mentioned above to install the plugin.</p>
+<p>We can use one of the <code>siteinterlock</code> utilities to visualize the
+hydrogen bond interactions in the current docking pose as deduced
+via ProFlex. First, we need to install the <code>pymol_bondvis-plugin.py</code>
+provided in the <code>siteinterlock</code>'s <code>scripts</code> directory. As shown in
+the two figures below, we click on the "Manage Plugins"
+(if you have it enabled in your PyMOL version) and select the plugin
+script mentioned above to install the plugin.</p>
 <p><img alt="" src="../images/install-bondviz-1.png" /></p>
 <p><img alt="" src="../images/install-bondviz-2.png" /></p>
-<p>Then, we need to restart our PyMOL application.</p>
-<p>To obtain the relevant hydrogen-bond information that the above-mentioned plugin requires, we run</p>
-<pre><code class="bash">python scripts/pflex-bondviz.py \
+<p>Then, we need to restart the PyMOL application.</p>
+<p>To obtain the relevant hydrogen-bond information
+that the above-mentioned plugin requires, run</p>
+<pre><code class="bash">python scripts/proflex_bondviz.py \
 -i examples/proflex_output/1com_0057/1com_0057_pflex_in_proflexdataset \
 -b hbonds
 </code></pre>
@@ -422,35 +572,73 @@ Atom#1 Atom#2
 
 </pre>
 
-<p>and we save these results as a text file, for example, <code>hbonds.txt</code>.
-Now, we reopen PyMOL, rename <code>1com_0057_pflex_in_proflexdataset</code> to <code>1com_0057_pflex_in_proflexdataset.pdb</code> and open this PDB file in our current PyMOL session. Next, we select the <code>BondViz</code> plugin from PyMOL's plugin menu, and we select the <code>hbonds.txt</code> file that we just created:</p>
+<p>and we save these results as a text file, for example, <code>hbonds.txt</code>.</p>
+<p>Now, we reopen PyMOL, rename <br />
+<code>1com_0057_pflex_in_proflexdataset</code> to <code>1com_0057_pflex_in_proflexdataset.pdb</code><br />
+and open this PDB file in
+the current PyMOL session. Next, select the <code>BondViz</code> plugin
+from PyMOL's plugin menu, and select the <code>hbonds.txt</code>
+file that was just created:</p>
 <p><img alt="" src="../images/open-hbonds-1.png" /></p>
-<p>Then, we open the PDB file that we provided as input to ProFlex, for example, <code>1com_0057_pflex_in.pdb</code> in order to visualize the hydrogen-bond network between the protein and the docked ligand:</p>
+<p>Then, open the PDB file that we previously used as input to ProFlex,
+for example,<br />
+<code>1com_0057_pflex_in.pdb</code>, in order to visualize the
+hydrogen-bond network between the protein and the docked ligand:</p>
 <p><img alt="" src="../images/open-hbonds-2.png" /></p>
 <p><img alt="" src="../images/open-hbonds-3.png" /></p>
 <p><br>
 <br></p>
 <h1 id="4-siteinterlock-scoring-and-pose-selection">4 - SiteInterlock Scoring and Pose Selection</h1>
-<p>After working through the necessary preparation steps described in sections 1-3, we can use the ProFlex output files to compute the SiteInterlock ranking scores for pose selection.</p>
-<p>First, we need to extract substructures of the protein-ligand complexes that contain the atoms of the ligand itself and all protein atoms within a 9-Angstrom radius of the ligand's heavy atoms. To accomplish this, we execute the <code>get-substructures.py</code> script from siteinterlock's <code>script</code> directory as follows:</p>
+<p>After working through the preparation steps described in sections 1-3,
+we can use the ProFlex output files to compute the SiteInterlock
+ranking scores for pose selection.</p>
+<p>First, we need to extract substructures of the protein-ligand complexes
+that contain the atoms of the ligand itself and all protein atoms within
+a 9-Angstrom radius of the ligand's heavy atoms. To accomplish this,
+we execute the <code>get-substructures.py</code>
+ script from siteinterlock's <code>script</code> directory as follows:</p>
 <pre><code class="bash">python scripts/get-substructures.py \
 --input examples/proflex_output/all-docking-poses-pdbs/ \
 --output examples/proflex_output/all-docking-poses-pdbs-9A/ \
---ligand &quot;&lt;0&gt;&quot; \
+--ligand &quot;&lt;0&gt;,,1&quot; \
 --apply_to_dir
 </code></pre>
 
-<p>where <code>examples/proflex_output/all-docking-poses-pdbs/</code> is a directory containing the ProFlex output PDBs that is shown in the screenshot at the end of section 3. Via the <code>--ligand</code> flag, we specify the residue name of the docked ligand. Here, we use the placeholder name "&lt;0&gt;", which refers to the prephenic acid ligand in these particular PDB files we are working with. Finally, via the <code>--apply_to_dir</code> flag, we specify that we want to apply the <code>scripts/get-substructures.py</code> to all structures in the input directory so that we don't have to run the same script multiple times -- for instance, running it on each individual PDB file.</p>
-<p>After running the script as described above, we should now find the following files in the specified output directory:</p>
+<p>where the directory <code>examples/proflex_output/all-docking-poses-pdbs/</code>
+contains the ProFlex output PDB files, as shown in the screenshot at
+the end of section 3. Via the <code>--ligand</code> flag, we specify the residue
+name, chain ID, and residue number of the docked ligand in the PDB file.</p>
+<p>In this particular case (due to a ligand processing tool we used),
+the 3-letter ligand residue name for the prephenic acid was assigned as &lt;0&gt;
+in the pdb file. (More typically, prephenic acid would have the ligand name
+PRE in a PDB file; see http://ligand-expo.rcsb.org). The input format for
+the <code>--ligand</code> format is <code>ResidueName,ChainID,ResidueNumber</code>. However,
+in this particular case, (again, due to a ligand processing tool we used)
+does not have a chain ID assigned so that we leave the <code>ChainID</code> value
+empty. For example, if our ligand of interested was assigned the
+chain ID "A", we would have written<br />
+<code>--ligand "&lt;0&gt;,A,1"</code>.</p>
+<p>Finally, via the <code>--apply_to_dir</code> flag, we specify that we want to apply
+the <code>scripts/get-substructures.py</code> to all structures in the input directory
+so that we don't have to run the same script multiple times -- for instance,
+running it on each individual PDB file.</p>
+<p>After running the script as described above, we should now find the following
+files in the specified output directory:</p>
 <p><img alt="" src="../images/1com-9a-dir.png" /></p>
-<p>When we open these files in PyMOL, we should see the ligand and the respective 9 Angstrom substructure of the protein -- the protein atoms that fall within 9 Angstrom of the ligand's heavy atoms:</p>
+<p>When we open these files in PyMOL, we should see the ligand and the
+respective 9 Angstrom substructure of the protein -- the protein atoms
+that fall within 9 Angstrom of the ligand's heavy atoms:</p>
 <p><img alt="" src="../images/1com_0057-rad9A.png" /></p>
-<p>After we obtained these substructures, we can run the <code>siteinterlock-score.py</code> script providing the substructure directory as input:</p>
+<p>This is another excellent validation step to do to make sure that the
+right binding site region of the protein has been selected for the ligand
+of interest. After these substructures have been obtained, run the
+<code>siteinterlock-score.py</code> script providing the substructure directory as input:</p>
 <pre><code class="bash">python scripts/siteinterlock-score.py \
 -i examples/proflex_output/all-docking-poses-pdbs-9A/
 </code></pre>
 
-<p>As a result, we should now see the following SiteInterlock scores on your command line terminal:</p>
+<p>As a result, we should now see the following SiteInterlock scores on
+your command line terminal:</p>
 <div class='proflex'>
 <pre>
 #
@@ -472,19 +660,57 @@ Filename,SiteInterlock_Score
 
 </pre>
 
-<p>These results are sorted by ascending order, and the <strong><em>lowest, most negative value represents the best prediction.</em></strong> Please also note that the SiteInterlock score is a score for ranking and pose selection. Due to the normalization procedure that is required for combining protein and ligand information, the absolute values (<em>not their relative ranking order</em>) of the scores depend on the number of docking poses.</p>
-<p>Since we worked through this tutorial as a re-docking study, we can compute the root mean square deviation (RMSD) between each docking pose and the crystal pose, <code>1com_crystal</code>. The following figure shows these SiteInterlock scores plotted against the RMSD from the crystal ligand pose:</p>
+<p>These results are sorted by ascending order, and the <strong><em>lowest, most negative
+value represents the best prediction.</em></strong> Please also note that the
+SiteInterlock score is a score for ranking and pose selection. Due to the
+normalization procedure that is required for combining protein and ligand
+information, the absolute values (<em>not their relative ranking order</em>) of
+the scores depend on the number of docking poses.</p>
+<p>Since this tutorial focuses on a protein with a crystallographically determined
+orientation of the ligand, we can compare the positional accuracy of the
+SiteInterlock-selected pose with the crystallographic pose.  We do this by
+computing the root mean square deviation (RMSD) of atomic positions between
+each docking pose of prephenic acid and the crystal pose, <code>1com_crystal</code>.
+In this example we performed the RMSD calculation using the <code>rmsd</code> module of
+the OEChem Toolkit (OpenEye Scientific Software, Santa Fe, NM;
+http://www.eyesopen.com). The following figure shows SiteInterlock scores
+of the docking poses plotted as a function of their RMSD values relative to
+the crystallographic pose. The plot indicates that the docking with the
+most negative SiteInterlock score has a low (good) RMSD value of 0.4 A
+relative to the correct, crystallographic position (as expected), that
+the crystallographic binding pose has a very similar, favorable
+SiteInterlock score, and that higher-RMSD binding poses typically
+have higher/worse SiteInterlock scores.</p>
 <p><img alt="" src="../images/1com_scores.png" /></p>
+<p>We hope you find SiteInterlock useful in your own research!</p>
 <p><br>
 <br></p>
 <h1 id="references">References</h1>
 <ol>
-<li>Chook, Y. M., Gray, J. V., Ke, H., &amp; Lipscomb, W. N. (1994). The monofunctional chorismate mutase from Bacillus subtilis: structure determination of chorismate mutase and its complexes with a transition state analog and prephenate, and implications for the mechanism of the enzymatic reaction. <em>Journal of molecular biology</em>, 240(5), 476-500.</li>
-<li>Hawkins, P. C., Skillman, A. G., Warren, G. L., Ellingson, B. A., &amp; Stahl, M. T. (2010). Conformer generation with OMEGA: algorithm and validation using high quality structures from the Protein Databank and Cambridge Structural Database. <em>Journal of chemical information and modeling</em>, 50(4), 572-584.</li>
-<li>Trott, O., &amp; Olson, A. J. (2010). AutoDock Vina: improving the speed and accuracy of docking with a new scoring function, efficient optimization, and multithreading. <em>Journal of computational chemistry</em>, 31(2), 455-461.</li>
-<li>Zavodszky, M. I., &amp; Kuhn, L. A. (2005). Side‐chain flexibility in protein–ligand binding: The minimal rotation hypothesis. <em>Protein Science</em>, 14(4), 1104-1114.</li>
-<li>Jacobs, D. J., Rader, A. J., Kuhn, L. A., &amp; Thorpe, M. F. (2001). Protein flexibility predictions using graph theory. <em>Proteins: Structure, Function, and Bioinformatics</em>, 44(2), 150-165.</li>
-<li>[SiteInterlock Citation]</li>
+<li>Chook, Y. M., Gray, J. V., Ke, H., &amp; Lipscomb, W. N. (1994).
+The monofunctional chorismate mutase from Bacillus subtilis:
+structure determination of chorismate mutase and its complexes
+with a transition state analog and prephenate, and implications for the
+mechanism of the enzymatic reaction.
+<em>Journal of molecular biology</em>, 240(5), 476-500.</li>
+<li>Hawkins, P. C., Skillman, A. G., Warren, G. L., Ellingson,
+B. A., &amp; Stahl, M. T. (2010). Conformer generation with OMEGA:
+algorithm and validation using high quality structures from the Protein
+Databank and Cambridge Structural Database. <em>Journal of chemical information
+and modeling</em>, 50(4), 572-584.</li>
+<li>Trott, O., &amp; Olson, A. J. (2010). AutoDock Vina: improving the speed
+and accuracy of docking with a new scoring function, efficient optimization,
+and multithreading. <em>Journal of computational chemistry</em>, 31(2), 455-461.</li>
+<li>Zavodszky, M. I., &amp; Kuhn, L. A. (2005). Side‐chain flexibility in
+protein–ligand binding: The minimal rotation hypothesis.
+<em>Protein Science</em>, 14(4), 1104-1114.</li>
+<li>Jacobs, D. J., Rader, A. J., Kuhn, L. A., &amp; Thorpe, M. F. (2001).
+Protein flexibility predictions using graph theory. <em>Proteins: Structure,
+Function, and Bioinformatics</em>, 44(2), 150-165.</li>
+<li><strong>Raschka, S., Bemister-Buffington, J., &amp; Kuhn, L. A. (2016).
+"Detecting the Native Ligand Orientation by Interfacial
+Rigidity: SiteInterlock." <em>Proteins: Structure, Function, and Bioinformatics</em>,
+85 (10).</strong></li>
 </ol>
               
             </div>

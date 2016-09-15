@@ -12,12 +12,12 @@ SiteInterlock is research software and should be cited when you use it in your r
   issn = {...},
   journal = {Proteins: Structure, Function, and Bioinformatics},
   month = {sep},
-  number = {...},
+  number = {10},
   pages = {...},
   publisher = {John Wiley & Sons},
   title = {Detecting the Native Ligand Orientation by Interfacial Rigidity: SiteInterlock},
   url = {...},
-  volume = {...},
+  volume = {85},
   year = {2016}
 }
 ```
