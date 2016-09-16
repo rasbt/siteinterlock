@@ -69,7 +69,7 @@ crystal complex may not be available.
 
 
 Before we can run the HETHER analysis, though, we need to run ProFlex's
-'hydrogen-dilution' analysis;
+'hydrogen-bond dilution' analysis;
 we navigate to the `examples/proflex_input/1com_nolig`
 directory and run ProFlex via the following command:
 
@@ -127,7 +127,7 @@ We execute the `hether.py` script from `siteinterlock` scripts directory and
 provide two input files, the {add a line break
 here so that the file name isn't split in the middle of a word}
 `1com_nolig_proflexdataset` file and the `decomp_list` file, which were
-both created via the hydrogen-dilution analysis. To run HETHER,
+both created via the hydrogen-bond dilution analysis. To run HETHER,
 we execute the following command:
 
 
@@ -182,7 +182,7 @@ python scripts/proflex_hether.py \
 
 As we can see from the previous output, HETHER suggests an energy
 threshold of `-0.806 kcal/mol`, which corresponds to the protein state
-that is indicated by an black arrow in the following hydrogen-dilution
+that is indicated by an black arrow in the following hydrogen-bond dilution
 plot figure:
 
 
