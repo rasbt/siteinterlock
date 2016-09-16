@@ -237,7 +237,7 @@ Please note that <strong><em>we use the ligand-free structure for the HETHER ana
 to represent the real-world case of a docking study where the protein-ligand
 crystal complex may not be available.</p>
 <p>Before we can run the HETHER analysis, though, we need to run ProFlex's
-'hydrogen-dilution' analysis;
+'hydrogen-bond dilution' analysis;
 we navigate to the <code>examples/proflex_input/1com_nolig</code>
 directory and run ProFlex via the following command:</p>
 <pre><code>proflex -h 1com_nolig.pdb
@@ -287,7 +287,7 @@ We execute the <code>hether.py</code> script from <code>siteinterlock</code> scr
 provide two input files, the {add a line break
 here so that the file name isn't split in the middle of a word}
 <code>1com_nolig_proflexdataset</code> file and the <code>decomp_list</code> file, which were
-both created via the hydrogen-dilution analysis. To run HETHER,
+both created via the hydrogen-bond dilution analysis. To run HETHER,
 we execute the following command:</p>
 <pre><code class="bash">python scripts/proflex_hether.py \
  --input1 examples/proflex_output/1com_nolig/1com_nolig_proflexdataset \
@@ -334,7 +334,7 @@ without executing the same command twice:</p>
 
 <p>As we can see from the previous output, HETHER suggests an energy
 threshold of <code>-0.806 kcal/mol</code>, which corresponds to the protein state
-that is indicated by an black arrow in the following hydrogen-dilution
+that is indicated by an black arrow in the following hydrogen-bond dilution
 plot figure:</p>
 <p><img alt="" src="../images/1com_nolig_h-bonds_dilute.png" /></p>
 <p>For more information about hydrogen-bond dilution analysis, please refer the

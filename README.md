@@ -71,7 +71,7 @@ in the `scripts/` subdirectory from any location on your local drive.
 
 You can find a detailed user guide in the package documentation that
 is hosted at
-[http://psa-lab.github.io/siteinterlock/index.htm](http://psa-lab.github.io/siteinterlock/index.html).
+[http://psa-lab.github.io/siteinterlock/index.html](http://psa-lab.github.io/siteinterlock/index.html).
 
 Alternatively, you can view the documentation offline after
 downloading `siteinterlock` and opening the `index.html` file that is
