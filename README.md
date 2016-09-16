@@ -23,7 +23,10 @@ behind the SiteInterlock project, please refer to the accompanying research publ
 XX (X). John Wiley & Sons : XXX-XX. doi:xx.xxxx/xxxxxxxx.
 {insert links to publisher website and to author-formatted version on our own website}
 
-![](docs/sources/images/siteinterlock.png)
+<div style="max-width:50%;">
+<img src="docs/sources/images/siteinterlock.png" alt="SiteInterlock Logo">
+</div>
+
 
 # Installation
 
