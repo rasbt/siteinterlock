@@ -20,8 +20,9 @@ behind the SiteInterlock project, please refer to the accompanying research publ
 - Raschka, Sebastian, Joseph Bemister-Buffington, and Leslie A. Kuhn 2016.
 "Detecting the Native Ligand Orientation by Interfacial Rigidity: SiteInterlock."
 *Proteins: Structure, Function, and Bioinformatics*
-XX (X). John Wiley & Sons : XXX-XX. doi:xx.xxxx/xxxxxxxx.
-{insert links to publisher website and to author-formatted version on our own website}
+XX (X). John Wiley & Sons : XXX-XX. doi:xx.xxxx/xxxxxxxx. {Manuscript ID: Prot-00209-2016.R1}
+
+
 
 # Installation
 

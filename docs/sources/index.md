@@ -12,7 +12,7 @@
 The `siteinterlock` toolkit was developed in the [Protein Structure Analysis & Design Laboratory](http://www.kuhnlab.bmb.msu.edu) at Michigan State University. For additional information on the theory behind the SiteInterlock project, please refer to the accompanying research publication:
 
 - Raschka, Sebastian, Joseph Bemister-Buffington, and Leslie A. Kuhn 2016. "Detecting the Native Ligand Orientation by Interfacial Rigidity: SiteInterlock." *Proteins: Structure, Function, and Bioinformatics* XX (X). John Wiley & Sons : XXX-XX. doi:xx.xxxx/xxxxxxxx.
- {insert link to publisher website}
+{Manuscript ID: Prot-00209-2016.R1}
 
 <div style="max-width:40%; inline-block; margin:0 auto;">
 <img src="images/siteinterlock.png" alt="SiteInterlock Logo">
