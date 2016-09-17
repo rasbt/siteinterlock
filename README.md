@@ -4,6 +4,14 @@
 <img src="docs/sources/images/logo_small.png" alt="SiteInterlock Logo">
 </div>
 
+---
+
+**NOTE**
+
+**For issues and pull requests, please use https://github.com/psa-lab/siteinterlock**
+
+---
+
 
 ***A novel approach to pose selection in protein-ligand docking based on graph theory.***
 
