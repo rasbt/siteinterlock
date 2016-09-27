@@ -48,7 +48,7 @@ if __name__ == '__main__':
                         "residue number is 234, we would provide the input: "
                         "\"PRE,A,234\"\nIf the ligand does not have a chain ID"
                         "\nassigned to it, you can omit it; for example "
-                        "\"PRE,A,234\".\n",
+                        "\"PRE,,234\".\n",
                         required=True)
 
     parser.add_argument('-a', '--apply_to_dir', action='store_true',
